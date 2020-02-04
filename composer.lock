@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c8ee523859d7af33584a89fa5b72e94",
+    "content-hash": "8a5df4192de5eca8ef32f34d332b94ba",
     "packages": [
         {
             "name": "ably/ably-php",
@@ -1266,6 +1266,54 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+            "name": "haruncpi/laravel-log-reader",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haruncpi/laravel-log-reader.git",
+                "reference": "44881c3fa020a402c1bb29eb2967f97b52fc05f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haruncpi/laravel-log-reader/zipball/44881c3fa020a402c1bb29eb2967f97b52fc05f0",
+                "reference": "44881c3fa020a402c1bb29eb2967f97b52fc05f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Haruncpi\\LaravelLogReader\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Haruncpi\\LaravelLogReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "cc-by-4.0"
+            ],
+            "authors": [
+                {
+                    "name": "MD.HARUN-UR-RASHID",
+                    "email": "harun.cox@gmail.com"
+                }
+            ],
+            "description": "A simple and beautiful laravel log reader",
+            "keywords": [
+                "laravel",
+                "log",
+                "reader"
+            ],
+            "time": "2020-01-27T14:13:15+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -1401,6 +1449,66 @@
                 "laravel"
             ],
             "time": "2020-01-30T23:45:45+00:00"
+        },
+        {
+            "name": "laravel/airlock",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/airlock.git",
+                "reference": "f246dfab0fe0103a9db731511b89e69e4fdf87eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/airlock/zipball/f246dfab0fe0103a9db731511b89e69e4fdf87eb",
+                "reference": "f246dfab0fe0103a9db731511b89e69e4fdf87eb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "^6.0|^7.0",
+                "illuminate/database": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Airlock\\AirlockServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Airlock\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Airlock provides a featherweight authentication system for SPAs and simple APIs.",
+            "keywords": [
+                "airlock",
+                "auth",
+                "laravel"
+            ],
+            "time": "2020-01-28T21:03:57+00:00"
         },
         {
             "name": "laravel/framework",
