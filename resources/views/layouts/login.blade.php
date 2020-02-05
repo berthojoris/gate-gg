@@ -5,8 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
         <title>Login</title>
-        <meta content="Admin Dashboard" name="description">
-        <meta content="Themesbrand" name="author">
         <link rel="shortcut icon" href="{{ asset('template/images/favicon.ico') }}">
         <link href="{{ asset('template/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('template/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
