@@ -21,9 +21,7 @@ class HomeController extends Controller
 
     public function mail()
     {
-        // $data = 10000;
-        // return (new EmailNotif($data))->render();
-        Mail::to('berthojoris@gmail.com')->send(new EmailNotif($data));
-        return "done";
+        $data = 10000;
+        return (new EmailNotif($data))->render();
     }
 }
