@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailNotif;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,5 +16,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function mail()
+    {
+        $data = 10000;
+        return (new EmailNotif($data))->render();
     }
 }
