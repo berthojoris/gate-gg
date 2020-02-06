@@ -47,7 +47,5 @@
     <!-- peity JS -->
     <script src="{{ asset('template/plugins/peity-chart/jquery.peity.min.js') }}"></script>
     <script src="{{ asset('template/pages/dashboard.js') }}"></script>
-    <!-- App js -->
-    <script src="{{ asset('template/js/app.js') }}"></script>
 </body>
 </html>
