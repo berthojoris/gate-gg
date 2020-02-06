@@ -3,7 +3,7 @@
         <div class="col-sm-6">
             <h4 class="page-title">Dashboard</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active">Welcome to Veltrix Dashboard</li>
+                <li class="breadcrumb-item active">Welcome to GATE UI</li>
             </ol>
         </div>
         <div class="col-sm-6">
