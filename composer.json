@@ -10,11 +10,13 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "fruitcake/laravel-cors": "^1.0",
         "haruncpi/laravel-id-generator": "^1.0",
         "haruncpi/laravel-log-reader": "^1.0",
         "laravel-shift/blueprint": "^1.2",
         "laravel/airlock": "^0.2.0",
         "laravel/framework": "^6.2",
+        "laravel/passport": "^8.3",
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^2.0",
         "maatwebsite/excel": "^3.1",
