@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "haruncpi/laravel-id-generator": "^1.0",
         "haruncpi/laravel-log-reader": "^1.0",
         "laravel-shift/blueprint": "^1.2",
         "laravel/airlock": "^0.2.0",
