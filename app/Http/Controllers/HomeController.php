@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\EmailNotif;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,9 @@ class HomeController extends Controller
 
     public function mail()
     {
-        $data = 10000;
-        return (new EmailNotif($data))->render();
+        // $data = 10000;
+        // return (new EmailNotif($data))->render();
+        Mail::to('berthojoris@gmail.com')->send(new EmailNotif($data));
+        return "done";
     }
 }
