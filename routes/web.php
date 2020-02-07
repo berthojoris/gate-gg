@@ -7,7 +7,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user', 'HomeController@index')->name('user');
+Route::get('/user', 'MyuserController@index')->name('user');
 Route::get('/application', 'HomeController@index')->name('application');
 Route::get('/community', 'HomeController@index')->name('community');
 
@@ -21,3 +21,8 @@ Route::get('/report/application', 'HomeController@index')->name('report_applicat
 Route::get('/report/point', 'HomeController@index')->name('report_point');
 
 Route::get('/mail', 'HomeController@mail')->name('mail');
+
+
+// ================================== Datatable API ==================================
+Route::get('/data/application', 'ApplicationController@data')->name('application_data');
+Route::get('/data/user', 'MyuserController@data')->name('user_data');
