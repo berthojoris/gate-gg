@@ -48,7 +48,6 @@
 
 @push('library_css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 @endpush
 
 @push('library_js')

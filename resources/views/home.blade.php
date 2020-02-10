@@ -42,8 +42,8 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-                            <h1 class="text-primary mt-2">1.000.000</h1>
-                            <p class="text-muted">Total users point</p>
+                            <h1 class="text-primary mt-2">{{ number_format($totalPoint) }}</h1>
+                            <p class="text-muted">Total users has point</p>
                             <div class="mt-4"><a href="#" class="btn btn-primary btn-sm">Open Detail</a></div>
                         </div>
                     </div>

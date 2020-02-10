@@ -29,7 +29,7 @@ div.dataTables_wrapper {
     margin-top: -10px;
     margin-left: -5px;
     border-radius: 50%;
-    border: 2px solid rgb(119, 128, 255);
+    border: 5px solid rgb(119, 128, 255);
     border-top-color: rgb(239, 235, 255);
     animation: spinner .6s linear infinite;
 }

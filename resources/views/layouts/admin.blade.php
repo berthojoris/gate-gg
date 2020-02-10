@@ -15,6 +15,7 @@
     <link href="{{ asset('template/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/style.css') }}" rel="stylesheet" type="text/css">
     @stack('library_css')
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <script>
         var baseURL = '{{ env('APP_URL') }}';
     </script>

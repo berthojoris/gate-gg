@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Point;
 use App\Myuser;
 use App\Community;
 use App\Application;
@@ -22,7 +23,12 @@ class HomeController extends Controller
         $totalUser = Myuser::count();
         $totalApp = Application::count();
         $totalCommunity = Community::count();
-        return view('home', compact('totalUser', 'totalApp', 'totalCommunity'));
+        $totalPoint = Point::select('user_id')
+            ->groupBy('user_id')
+            ->get()
+            ->count();
+
+        return view('home', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint'));
     }
 
     public function mail()

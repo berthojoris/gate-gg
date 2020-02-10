@@ -98,31 +98,44 @@ $(document).ready(function () {
     processing: true,
     serverSide: true,
     ajax: baseURL + '/data/user',
+    order: [[0, "desc"]],
     language: {
       processing: '<div class="spinner"></div>'
     },
     columns: [{
       data: 'id',
-      name: 'id',
-      visible: false
+      visible: false,
+      searchable: false
     }, {
-      data: 'name',
-      name: 'name'
+      data: 'name'
     }, {
       data: 'gender',
-      name: 'gender'
+      searchable: false
     }, {
       data: 'address',
-      name: 'address'
+      searchable: false,
+      render: function render(data, type, row) {
+        if (data == '') {
+          return "-";
+        }
+
+        return data;
+      }
     }, {
       data: 'phone',
-      name: 'phone'
+      searchable: false,
+      render: function render(data, type, row) {
+        if (data == '') {
+          return "-";
+        }
+
+        return data;
+      }
     }, {
-      data: 'email',
-      name: 'email'
+      data: 'email'
     }, {
       data: 'last_login',
-      name: 'last_login'
+      searchable: false
     }]
   });
   $('div.dataTables_filter input').addClass('form-control');
