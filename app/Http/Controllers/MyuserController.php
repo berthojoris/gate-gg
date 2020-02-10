@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class MyuserController extends Controller
 {
+
     public function data()
     {
         return datatables()->of(Myuser::query())->toJson();
@@ -22,6 +23,7 @@ class MyuserController extends Controller
 
     public function downloadExcel()
     {
-        return fastexcel(Myuser::all())->download('users.csv');
+        $query = Myuser::orderBy('id', 'desc')->get();
+        return fastexcel($query)->download('users.csv');
     }
 }

@@ -12,7 +12,7 @@
             <div class="col-sm-6">
                 <div class="float-right d-none d-md-block">
                     <div class="dropdown">
-                    <a href="{{ route('download_user') }}" class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light"><i class="mdi mdi-download mr-2"></i> Download</a>
+                    <a href="{{ route('download_application') }}" class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light"><i class="mdi mdi-download mr-2"></i> Download</a>
                     </div>
                 </div>
             </div>
@@ -26,16 +26,14 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="dt_user" class="table mb-0">
+                    <table id="dt_application" class="table mb-0">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Last Login</th>
+                                <th>Website</th>
+                                <th>Status</th>
+                                <th>Client ID</th>
                             </tr>
                         </thead>
                     </table>
