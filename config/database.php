@@ -43,6 +43,26 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'local_gate' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('LOCAL_GATE_HOST', '127.0.0.1'),
+            'port' => env('LOCAL_GATE_PORT', '3306'),
+            'database' => env('LOCAL_GATE_DATABASE', 'forge'),
+            'username' => env('LOCAL_GATE_USERNAME', 'forge'),
+            'password' => env('LOCAL_GATE_PASSWORD', ''),
+            'unix_socket' => env('LOCAL_GATE_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
         'gate' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

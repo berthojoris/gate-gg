@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
-    protected $connection = 'gate';
+    protected $connection = 'local_gate';
     protected $table = 'ggid_community';
 }

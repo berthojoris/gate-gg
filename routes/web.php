@@ -26,3 +26,7 @@ Route::get('/mail', 'HomeController@mail')->name('mail');
 // ================================== Datatable API ==================================
 Route::get('/data/application', 'ApplicationController@data')->name('application_data');
 Route::get('/data/user', 'MyuserController@data')->name('user_data');
+
+
+// ================================== Download API ==================================
+Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');

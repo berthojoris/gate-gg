@@ -2,11 +2,12 @@
 
 namespace App\Jobs;
 
+use Exception;
 use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 
 class SendEmail implements ShouldQueue
 {
@@ -21,6 +22,11 @@ class SendEmail implements ShouldQueue
 
     public function handle()
     {
+        var_dump($this->data);
+    }
 
+    public function failed(Exception $exception)
+    {
+        // Send user notification of failure, etc...
     }
 }

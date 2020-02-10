@@ -1,9 +1,6 @@
 <div class="content-page">
 
     <div class="content">
-        <div class="container-fluid">
-            @include('shared.page_title')
-        </div>
         @yield('content')
     </div>
 

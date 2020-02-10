@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Myuser;
+use App\Jobs\SendEmail;
+use App\Exports\AppExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MyuserController extends Controller
 {
@@ -17,18 +20,8 @@ class MyuserController extends Controller
         return view('user.index');
     }
 
-    public function findByEmail()
+    public function downloadExcel()
     {
-
-    }
-
-    public function findByNumber()
-    {
-
-    }
-
-    public function filterByEmail()
-    {
-
+        return fastexcel(Myuser::all())->download('users.csv');
     }
 }
