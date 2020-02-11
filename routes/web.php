@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/application', 'ApplicationController@index')->name('application');
     Route::get('/community', 'CommunityController@index')->name('community');
     Route::get('/point', 'PointController@index')->name('point');
+    Route::get('/point/{id}/view', 'PointController@viewPointDetail')->name('point_user_detail');
 
 
     // ================================== Download Excel ==================================

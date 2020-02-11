@@ -20,6 +20,8 @@
     </div>
 </div>
 
+{{-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"> --}}
+
 <div class="row">
     <div class="col-lg-12">
         @include('flash::message')
@@ -33,6 +35,7 @@
                                 <th>Total Point</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>#</th>
                             </tr>
                         </thead>
                     </table>

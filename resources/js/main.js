@@ -9,7 +9,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="spinner"></div>'
+                processing: '<div class="circle"></div><div class="circle-small">'
             },
             columns: [{
                     data: 'id',
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="spinner"></div>'
+                processing: '<div class="circle"></div><div class="circle-small">'
             },
             columns: [{
                     data: 'id',
@@ -108,7 +108,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="spinner"></div>'
+                processing: '<div class="circle"></div><div class="circle-small">'
             },
             columns: [{
                     data: 'id',
@@ -140,7 +140,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="spinner"></div>'
+                processing: '<div class="circle"></div><div class="circle-small">'
             },
             columns: [{
                     data: 'user_id',
@@ -160,6 +160,12 @@ $(document).ready(function() {
                 {
                     data: 'email',
                     name: 'ggid_myuser.email'
+                },
+                {
+                    data: 'user_id',
+                    render: function(data, type, row) {
+                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/view">View</a>'
+                    }
                 }
             ]
         });

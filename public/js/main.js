@@ -101,7 +101,7 @@ $(document).ready(function () {
       ajax: baseURL + '/data/user',
       order: [[0, "desc"]],
       language: {
-        processing: '<div class="spinner"></div>'
+        processing: '<div class="circle"></div><div class="circle-small">'
       },
       columns: [{
         data: 'id',
@@ -148,7 +148,7 @@ $(document).ready(function () {
       ajax: baseURL + '/data/application',
       order: [[0, "desc"]],
       language: {
-        processing: '<div class="spinner"></div>'
+        processing: '<div class="circle"></div><div class="circle-small">'
       },
       columns: [{
         data: 'id',
@@ -188,7 +188,7 @@ $(document).ready(function () {
       ajax: baseURL + '/data/community',
       order: [[0, "desc"]],
       language: {
-        processing: '<div class="spinner"></div>'
+        processing: '<div class="circle"></div><div class="circle-small">'
       },
       columns: [{
         data: 'id',
@@ -215,7 +215,7 @@ $(document).ready(function () {
       ajax: baseURL + '/data/point',
       order: [[0, "desc"]],
       language: {
-        processing: '<div class="spinner"></div>'
+        processing: '<div class="circle"></div><div class="circle-small">'
       },
       columns: [{
         data: 'user_id',
@@ -232,6 +232,11 @@ $(document).ready(function () {
       }, {
         data: 'email',
         name: 'ggid_myuser.email'
+      }, {
+        data: 'user_id',
+        render: function render(data, type, row) {
+          return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/view">View</a>';
+        }
       }]
     });
   }

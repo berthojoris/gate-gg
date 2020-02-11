@@ -32,4 +32,10 @@ class PointController extends Controller
         ->get();
         return fastexcel($query)->download('point.csv');
     }
+
+    public function viewPointDetail($id)
+    {
+        $data = Point::with(['application'])->whereUserId($id)->get();
+        return view('point.view', compact('data'));
+    }
 }
