@@ -99,6 +99,38 @@ $(document).ready(function() {
         });
     }
 
+    if ($("#dt_community").length) {
+        $('#dt_community').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: baseURL + '/data/community',
+            order: [
+                [0, "desc"]
+            ],
+            language: {
+                processing: '<div class="spinner"></div>'
+            },
+            columns: [{
+                    data: 'id',
+                    visible: false,
+                    searchable: false
+                },
+                {
+                    data: 'application.name',
+                    render: function(data, type, row) {
+                        return data.toUpperCase()
+                    }
+                },
+                {
+                    data: 'user.name',
+                    render: function(data, type, row) {
+                        return data.toUpperCase()
+                    }
+                }
+            ]
+        });
+    }
+
     $('div.dataTables_filter input').addClass('form-control');
     $('div.dataTables_length select').addClass('form-control');
 });
