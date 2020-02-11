@@ -13,9 +13,6 @@
                 <li><a href="{{ route('api_usage') }}" class="{{ request()->is('api') ? 'mm-active' : 'mm-show' }}"><i class="far fa-chart-bar"></i><span>API Usage</span></a></li>
                 <li><a href="{{ route('activity') }}" class="{{ request()->is('activity') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-crosshairs"></i><span>User Activity</span></a></li>
                 <li class="menu-title">Report</li>
-                <li><a href="{{ route('report_user') }}" class="{{ request()->is('report/user') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>User</span></a></li>
-                <li><a href="{{ route('report_community') }}" class="{{ request()->is('report/community') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>Community</span></a></li>
-                <li><a href="{{ route('report_application') }}" class="{{ request()->is('report/application') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>Application</span></a></li>
                 <li><a href="{{ route('report_point') }}" class="{{ request()->is('report/point') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>Point</span></a></li>
             </ul>
         </div>

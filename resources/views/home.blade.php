@@ -22,7 +22,7 @@
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
                             <h1 class="text-primary mt-2">{{ $totalApp }}</h1>
                             <p class="text-muted">Total registered app</p>
-                            <div class="mt-4"><a href="#" class="btn btn-primary btn-sm">Open Detail</a></div>
+                            <div class="mt-4"><a href="{{ route('application') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
                             <h1 class="text-primary mt-2">{{ $totalCommunity }}</h1>
                             <p class="text-muted">Total registered community</p>
-                            <div class="mt-4"><a href="#" class="btn btn-primary btn-sm">Open Detail</a></div>
+                            <div class="mt-4"><a href="{{ route('community') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
                             <h1 class="text-primary mt-2">{{ number_format($totalPoint) }}</h1>
                             <p class="text-muted">Total users has point</p>
-                            <div class="mt-4"><a href="#" class="btn btn-primary btn-sm">Open Detail</a></div>
+                            <div class="mt-4"><a href="{{ route('point') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
                         </div>
                     </div>
                 </div>

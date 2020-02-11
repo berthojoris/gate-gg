@@ -208,6 +208,34 @@ $(document).ready(function () {
     });
   }
 
+  if ($("#dt_point").length) {
+    $('#dt_point').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/point',
+      order: [[0, "desc"]],
+      language: {
+        processing: '<div class="spinner"></div>'
+      },
+      columns: [{
+        data: 'user_id',
+        searchable: false
+      }, {
+        data: 'total_point',
+        render: function render(data, type, row) {
+          return numeral(data).format('0,0');
+        },
+        searchable: false
+      }, {
+        data: 'name',
+        name: 'ggid_myuser.name'
+      }, {
+        data: 'email',
+        name: 'ggid_myuser.email'
+      }]
+    });
+  }
+
   $('div.dataTables_filter input').addClass('form-control');
   $('div.dataTables_length select').addClass('form-control');
 });
