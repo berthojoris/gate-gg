@@ -3,8 +3,8 @@
     <!-- LOGO -->
     <div class="topbar-left">
         <a href="{{ route('home') }}" class="logo">
-            <span><img src="{{ asset('template/images/logo-light.png') }}" alt="" height="18"> </span>
-            <i><img src="{{ asset('template/images/logo-sm.png') }}" alt="" height="22"></i>
+            {{-- <span><img src="{{ asset('template/images/logo-light.png') }}" alt="" height="18"> </span>
+            <i><img src="{{ asset('template/images/logo-sm.png') }}" alt="" height="22"></i> --}}
         </a>
     </div>
     <nav class="navbar-custom">

@@ -24,4 +24,10 @@ class CommunityController extends Controller
     {
         return (new CommunityExport)->download('community.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
+
+    public function viewCommunityDetail($id)
+    {
+        $data = Community::with('user')->whereUserId($id)->get();
+        return view('community.view', compact('data'));
+    }
 }

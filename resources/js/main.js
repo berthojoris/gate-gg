@@ -9,7 +9,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="circle"></div><div class="circle-small">'
+                processing: '<div class="circle-inner"></div>'
             },
             columns: [{
                     data: 'id',
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="circle"></div><div class="circle-small">'
+                processing: '<div class="circle-inner"></div>'
             },
             columns: [{
                     data: 'id',
@@ -108,7 +108,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="circle"></div><div class="circle-small">'
+                processing: '<div class="circle-inner"></div>'
             },
             columns: [{
                     data: 'id',
@@ -126,6 +126,12 @@ $(document).ready(function() {
                     render: function(data, type, row) {
                         return data.toUpperCase()
                     }
+                },
+                {
+                    data: 'user_id',
+                    render: function(data, type, row) {
+                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/view">View</a>'
+                    }
                 }
             ]
         });
@@ -140,7 +146,7 @@ $(document).ready(function() {
                 [0, "desc"]
             ],
             language: {
-                processing: '<div class="circle"></div><div class="circle-small">'
+                processing: '<div class="circle-inner"></div>'
             },
             columns: [{
                     data: 'user_id',
@@ -167,7 +173,74 @@ $(document).ready(function() {
                         return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/view">View</a>'
                     }
                 }
-            ]
+            ],
+            initComplete: function(settings, json) {
+
+            }
+        });
+    }
+
+    if ($("#dt_point_category").length) {
+        $('#dt_point_category').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: baseURL + '/data/pointcategory',
+            order: [
+                [7, "desc"]
+            ],
+            language: {
+                processing: '<div class="circle-inner"></div>'
+            },
+            columns: [{
+                    data: 'id',
+                    visible: false,
+                    searchable: false,
+                    name: 'ggid_pointcategory.id'
+                },
+                {
+                    data: 'status',
+                    name: 'ggid_pointcategory.status',
+                    render: function(data, type, row) {
+                        if (data == "Published") {
+                            return "<span class='badge badge-success'>Published</span>";
+                        } else {
+                            return "<span class='badge badge-danger'>" + data + "</span>";
+                        }
+                    }
+                },
+                {
+                    data: 'amount',
+                    searchable: false,
+                    render: function(data, type, row) {
+                        return numeral(data).format('0,0');
+                    },
+                },
+                {
+                    data: 'name',
+                    name: 'ggid_pointcategory.name'
+                },
+                {
+                    data: 'app_name',
+                    name: 'ggid_application.name'
+                },
+                {
+                    data: 'action_performed'
+                },
+                {
+                    data: 'rule_name',
+                    name: 'ggid_pointcategorytimerule.name',
+                    render: function(data, type, row) {
+                        return "<span class='badge badge-info'>" + data + "</span>";
+                    }
+                },
+                {
+                    data: 'datetime_added',
+                    searchable: false,
+                }
+            ],
+            initComplete: function(settings, json) {
+
+            }
         });
     }
 

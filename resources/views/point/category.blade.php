@@ -26,14 +26,17 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="dt_point" class="table mb-0">
+                    <table id="dt_point_category" class="table mb-0">
                         <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>Total Point</th>
+                                <th>ID</th>
+                                <th>Status</th>
+                                <th>Amount</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Detail</th>
+                                <th>Application</th>
+                                <th>Action</th>
+                                <th>Rule</th>
+                                <th>Date Add</th>
                             </tr>
                         </thead>
                     </table>
@@ -42,6 +45,21 @@
         </div>
     </div>
 </div>
+
+<style>
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 90%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>
 @endsection
 
 @push('library_css')
