@@ -40,10 +40,10 @@ class PointController extends Controller
     public function downloadExcel()
     {
         $query = DB::connection('local_gate')->table('ggid_point')
-        ->select(DB::raw('user_id, SUM(amount) as total_point, ggid_myuser.name, ggid_myuser.email'))
-        ->join('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_point.user_id')
-        ->groupBy('user_id')
-        ->get();
+            ->select(DB::raw('user_id, SUM(amount) as total_point, ggid_myuser.name, ggid_myuser.email'))
+            ->join('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_point.user_id')
+            ->groupBy('user_id')
+            ->get();
         return fastexcel($query)->download('point.csv');
     }
 
