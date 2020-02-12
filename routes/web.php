@@ -19,6 +19,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/point/category', 'PointController@category')->name('point_category');
     Route::get('/point/{id}/view', 'PointController@viewPointDetail')->name('point_user_detail');
     Route::get('/community/{id}/view', 'CommunityController@viewCommunityDetail')->name('community_detail');
+    Route::get('/qrcode', 'QRCodeController@index')->name('qrcode');
+    Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
 
 
     // ================================== Download Excel ==================================
@@ -26,6 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/download/application', 'ApplicationController@downloadExcel')->name('download_application');
     Route::get('/download/community', 'CommunityController@downloadExcel')->name('download_community');
     Route::get('/download/point', 'PointController@downloadExcel')->name('download_point');
+    Route::get('/download/qrcode', 'QRCodeController@downloadQrcode')->name('download_qrcode');
+    Route::get('/download/qrcode/usage', 'QRCodeController@downloadQrcodeusage')->name('download_qrcode_usage');
 
 
     // ================================== Datatable API ==================================
@@ -34,6 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/community', 'CommunityController@data')->name('community_data');
     Route::get('/data/point', 'PointController@data')->name('point_data');
     Route::get('/data/pointcategory', 'PointController@dataPointCategory')->name('point_data');
+    Route::get('/data/qrcode', 'QRCodeController@data')->name('qrcode_data');
+    Route::get('/data/qrcode/usage', 'QRCodeController@dataPointCategory')->name('qrcodeusage_data');
 });
 
 Route::get('/api', 'HomeController@index')->name('api_usage');

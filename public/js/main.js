@@ -93,6 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 $(document).ready(function () {
   if ($("#dt_user").length) {
     $('#dt_user').DataTable({
@@ -293,6 +295,81 @@ $(document).ready(function () {
         }
       }, {
         data: 'datetime_added',
+        searchable: false
+      }],
+      initComplete: function initComplete(settings, json) {}
+    });
+  }
+
+  if ($("#dt_qrcode").length) {
+    $('#dt_qrcode').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/qrcode',
+      order: [[7, "desc"]],
+      language: {
+        processing: '<div class="circle-inner"></div>'
+      },
+      columns: [{
+        data: 'id',
+        visible: false,
+        searchable: false,
+        name: 'ggid_qrcode.id'
+      }, {
+        data: 'event_name'
+      }, {
+        data: 'message_title'
+      }, {
+        data: 'start_date',
+        searchable: false
+      }, {
+        data: 'end_date',
+        searchable: false
+      }, _defineProperty({
+        data: 'point',
+        searchable: false,
+        render: function render(data, type, row) {
+          return numeral(data).format('0,0');
+        }
+      }, "searchable", false), {
+        data: 'app_name',
+        name: 'ggid_application.name',
+        render: function render(data, type, row) {
+          return "<span class='badge badge-info'>" + data + "</span>";
+        }
+      }, {
+        data: 'username',
+        name: 'ggid_myuser.name'
+      }, {
+        data: 'datetime_created',
+        searchable: false
+      }],
+      initComplete: function initComplete(settings, json) {}
+    });
+  }
+
+  if ($("#dt_qrcode_usage").length) {
+    $('#dt_qrcode_usage').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/qrcode/usage',
+      order: [[3, "desc"]],
+      language: {
+        processing: '<div class="circle-inner"></div>'
+      },
+      columns: [{
+        data: 'id',
+        visible: false,
+        searchable: false,
+        name: 'ggid_qrcodeuserrelation.id'
+      }, {
+        data: 'username',
+        name: 'ggid_myuser.name'
+      }, {
+        data: 'event_name',
+        name: 'ggid_qrcode.event_name'
+      }, {
+        data: 'datetime_created',
         searchable: false
       }],
       initComplete: function initComplete(settings, json) {}

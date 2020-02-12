@@ -12,7 +12,7 @@
             <div class="col-sm-6">
                 <div class="float-right d-none d-md-block">
                     <div class="dropdown">
-                    <a href="{{ route('download_point') }}" class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light"><i class="mdi mdi-download mr-2"></i> Download</a>
+                    <a href="{{ route('download_qrcode') }}" class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light"><i class="mdi mdi-download mr-2"></i> Download</a>
                     </div>
                 </div>
             </div>
@@ -25,22 +25,21 @@
         @include('flash::message')
         <div class="card">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table id="dt_point_category" class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Status</th>
-                                <th>Amount</th>
-                                <th>Name</th>
-                                <th>Application</th>
-                                <th>Action</th>
-                                <th>Rule</th>
-                                <th>Date Add</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+                <table id="dt_qrcode" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Event</th>
+                            <th>Message</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Point</th>
+                            <th>App</th>
+                            <th>Creator</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
@@ -56,7 +55,7 @@
 @push('library_js')
 <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('template/plugins/datatables/dataTables.responsive.min.js') }}"></script>
+{{-- <script src="{{ asset('template/plugins/datatables/dataTables.responsive.min.js') }}"></script> --}}
 <script src="{{ asset('template/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('js/numeral.min.js') }}"></script>
 @endpush
