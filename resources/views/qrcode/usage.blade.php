@@ -31,6 +31,7 @@
                             <th>ID</th>
                             <th>User</th>
                             <th>Event</th>
+                            <th>Point</th>
                             <th>Redeem Time</th>
                         </tr>
                     </thead>

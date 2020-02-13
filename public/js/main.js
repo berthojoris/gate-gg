@@ -387,6 +387,12 @@ $(document).ready(function () {
         data: 'event_name',
         name: 'ggid_qrcode.event_name'
       }, {
+        data: 'point',
+        searchable: false,
+        render: function render(data, type, row) {
+          return numeral(data).format('0,0');
+        }
+      }, {
         data: 'datetime_created',
         render: function render(data, type, row) {
           return data ? moment(data, "YYYYMMDD").fromNow() : '-';
