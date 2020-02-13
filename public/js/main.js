@@ -247,7 +247,9 @@ $(document).ready(function () {
       }, {
         data: 'user_id',
         render: function render(data, type, row) {
-          return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/view">View</a>';
+          return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/' + slugify(row.name, {
+            lower: true
+          }) + '/history">View</a>';
         }
       }],
       initComplete: function initComplete(settings, json) {}

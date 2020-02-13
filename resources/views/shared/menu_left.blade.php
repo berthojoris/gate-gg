@@ -16,7 +16,7 @@
                 </li>
                 <li class="menu-title">Points</li>
                 <li>
-                    <a href="{{ route('point') }}" class="{{ request()->is('point') || request()->is('point/*/view') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-dollar-sign"></i><span>User Point</span></a>
+                    <a href="{{ route('point') }}" class="{{ request()->is('point') || request()->is('point/*/history') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-dollar-sign"></i><span>User Point</span></a>
                     <a href="{{ route('point_category') }}" class="{{ request()->is('point/category') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-dollar-sign"></i><span>Point Category</span></a>
                 </li>
                 <li class="menu-title">Topup QR Scanner</li>
