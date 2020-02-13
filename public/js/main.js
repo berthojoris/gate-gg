@@ -119,7 +119,10 @@ $(document).ready(function () {
         data: 'name'
       }, {
         data: 'gender',
-        searchable: false
+        searchable: false,
+        render: function render(data, type, row) {
+          return data == "F" ? "Female" : "Male";
+        }
       }, {
         data: 'address',
         searchable: false,
@@ -179,11 +182,7 @@ $(document).ready(function () {
       }, {
         data: 'status',
         render: function render(data, type, row) {
-          if (data == '') {
-            return "-";
-          }
-
-          return data;
+          return "<span class='badge badge-info'>" + data + "</span>";
         }
       }, {
         data: 'client_id',
@@ -430,6 +429,48 @@ $(document).ready(function () {
         render: function render(data, type, row) {
           return data ? moment(data, "YYYYMMDD").fromNow() : '-';
         }
+      }],
+      initComplete: function initComplete(settings, json) {}
+    });
+  }
+
+  if ($("#dt_adminlog").length) {
+    $('#dt_adminlog').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/adminlog',
+      order: [[0, "desc"]],
+      language: {
+        processing: '<div class="circle-inner"></div>'
+      },
+      columns: [{
+        data: 'id',
+        visible: false,
+        searchable: false
+      }, {
+        data: 'action_time',
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        }
+      }, {
+        data: 'change_message',
+        render: function render(data, type, row) {
+          return ucwords(data) != "" ? ucwords(data) : '-';
+        }
+      }, {
+        data: 'object_repr',
+        render: function render(data, type, row) {
+          return ucwords(data);
+        }
+      }, {
+        data: 'model',
+        name: 'django_content_type.model',
+        render: function render(data, type, row) {
+          return ucwords(data);
+        }
+      }, {
+        data: 'username',
+        name: 'ggid_myuser.name'
       }],
       initComplete: function initComplete(settings, json) {}
     });

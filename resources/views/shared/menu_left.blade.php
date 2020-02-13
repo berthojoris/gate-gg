@@ -26,6 +26,7 @@
                 </li>
                 <li class="menu-title">Tracking</li>
                 <li>
+                    <a href="{{ route('adminlog') }}" class="{{ request()->is('log') || request()->is('log/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-eye"></i><span>Admin Log</span></a>
                     <a href="{{ route('notification') }}" class="{{ request()->is('notification') || request()->is('notification/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-eye"></i><span>Notification</span></a>
                 </li>
             </ul>

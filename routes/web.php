@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/qrcode', 'QRCodeController@index')->name('qrcode');
     Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
     Route::get('/notification', 'NotificationController@index')->name('notification');
+    Route::get('/log', 'AdminLogController@index')->name('adminlog');
 
 
     // ================================== Download Excel ==================================
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/qrcode', 'QRCodeController@data')->name('qrcode_data');
     Route::get('/data/qrcode/usage', 'QRCodeController@dataPointCategory')->name('qrcodeusage_data');
     Route::get('/data/notification', 'NotificationController@data')->name('notification_data');
+    Route::get('/data/adminlog', 'AdminLogController@data')->name('adminlog_data');
 });
 
 Route::get('/api', 'HomeController@index')->name('api_usage');
