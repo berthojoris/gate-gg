@@ -17790,11 +17790,6 @@ module.exports = function(module) {
 window.slugify = __webpack_require__(/*! slugify */ "./node_modules/slugify/slugify.js");
 window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
-var capitalize = function capitalize(s) {
-  if (typeof s !== 'string') return '';
-  return s.charAt(0).toUpperCase() + s.slice(1);
-};
-
 /***/ }),
 
 /***/ 1:

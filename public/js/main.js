@@ -96,6 +96,12 @@
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 $(document).ready(function () {
+  function ucwords(str) {
+    return (str + '').replace(/^(.)|\s+(.)/g, function ($1) {
+      return $1.toUpperCase();
+    });
+  }
+
   if ($("#dt_user").length) {
     $('#dt_user').DataTable({
       processing: true,
@@ -387,6 +393,43 @@ $(document).ready(function () {
           return data ? moment(data, "YYYYMMDD").fromNow() : '-';
         },
         searchable: false
+      }],
+      initComplete: function initComplete(settings, json) {}
+    });
+  }
+
+  if ($("#dt_notification").length) {
+    $('#dt_notification').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/notification',
+      order: [[0, "desc"]],
+      language: {
+        processing: '<div class="circle-inner"></div>'
+      },
+      columns: [{
+        data: 'id',
+        visible: false,
+        searchable: false
+      }, {
+        data: 'verb',
+        render: function render(data, type, row) {
+          return ucwords(data);
+        }
+      }, {
+        data: 'level',
+        render: function render(data, type, row) {
+          return "<span class='badge badge-info'>" + ucwords(data) + "</span>";
+        }
+      }, {
+        data: 'username',
+        name: 'ggid_myuser.name'
+      }, {
+        data: 'timestamp',
+        searchable: false,
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        }
       }],
       initComplete: function initComplete(settings, json) {}
     });

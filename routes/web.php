@@ -11,6 +11,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
+    // ================================== Main Pages ==================================
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/user', 'MyuserController@index')->name('user');
     Route::get('/application', 'ApplicationController@index')->name('application');
@@ -21,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/community/{id}/{any}/userlist', 'CommunityController@viewCommunityDetail')->name('community_detail');
     Route::get('/qrcode', 'QRCodeController@index')->name('qrcode');
     Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
+    Route::get('/notification', 'NotificationController@index')->name('notification');
 
 
     // ================================== Download Excel ==================================
@@ -40,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/pointcategory', 'PointController@dataPointCategory')->name('point_data');
     Route::get('/data/qrcode', 'QRCodeController@data')->name('qrcode_data');
     Route::get('/data/qrcode/usage', 'QRCodeController@dataPointCategory')->name('qrcodeusage_data');
+    Route::get('/data/notification', 'NotificationController@data')->name('notification_data');
 });
 
 Route::get('/api', 'HomeController@index')->name('api_usage');

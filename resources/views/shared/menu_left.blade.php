@@ -21,8 +21,12 @@
                 </li>
                 <li class="menu-title">Topup QR Scanner</li>
                 <li>
-                    <a href="{{ route('qrcode') }}" class="{{ request()->is('qrcode') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>Master</span></a>
-                    <a href="{{ route('qrcode_usage') }}" class="{{ request()->is('qrcode/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-cloud-download-alt"></i><span>Usage</span></a>
+                    <a href="{{ route('qrcode') }}" class="{{ request()->is('qrcode') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-barcode"></i><span>Master</span></a>
+                    <a href="{{ route('qrcode_usage') }}" class="{{ request()->is('qrcode/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-barcode"></i><span>Usage</span></a>
+                </li>
+                <li class="menu-title">Tracking</li>
+                <li>
+                    <a href="{{ route('notification') }}" class="{{ request()->is('notification') || request()->is('notification/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-eye"></i><span>Notification</span></a>
                 </li>
             </ul>
         </div>
