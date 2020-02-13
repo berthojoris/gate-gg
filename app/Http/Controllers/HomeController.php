@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Point;
 use App\Myuser;
+use App\QRCode;
 use App\Community;
 use App\Application;
 use App\Mail\EmailNotif;
+use App\QRCodeUserRelation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -22,8 +24,10 @@ class HomeController extends Controller
             ->groupBy('user_id')
             ->get()
             ->count();
+        $totalQrCode = QRCode::count();
+        $totalQrCodeUsage = QRCodeUserRelation::count();
 
-        return view('home', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint'));
+        return view('home', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint', 'totalQrCode', 'totalQrCodeUsage'));
     }
 
     public function mail()
