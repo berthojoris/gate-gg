@@ -48,6 +48,9 @@ $(document).ready(function() {
                 },
                 {
                     data: 'last_login',
+                    render: function(data, type, row) {
+                        return (data) ? moment(data, "YYYYMMDD").fromNow() : '-'
+                    },
                     searchable: false
                 }
             ]
@@ -128,9 +131,9 @@ $(document).ready(function() {
                     }
                 },
                 {
-                    data: 'user_id',
+                    data: 'id',
                     render: function(data, type, row) {
-                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/view">View</a>'
+                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/' + slugify(row.user.name, { lower: true, }) + '/userlist">View</a>'
                     }
                 }
             ]
@@ -235,6 +238,9 @@ $(document).ready(function() {
                 },
                 {
                     data: 'datetime_added',
+                    render: function(data, type, row) {
+                        return (data) ? moment(data, "YYYYMMDD").fromNow() : '-'
+                    },
                     searchable: false,
                 }
             ],
@@ -296,6 +302,9 @@ $(document).ready(function() {
                 },
                 {
                     data: 'datetime_created',
+                    render: function(data, type, row) {
+                        return (data) ? moment(data, "YYYYMMDD").fromNow() : '-'
+                    },
                     searchable: false
                 }
             ],
@@ -332,6 +341,9 @@ $(document).ready(function() {
                 },
                 {
                     data: 'datetime_created',
+                    render: function(data, type, row) {
+                        return (data) ? moment(data, "YYYYMMDD").fromNow() : '-'
+                    },
                     searchable: false
                 }
             ],

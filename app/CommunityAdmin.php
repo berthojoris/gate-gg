@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Community extends Model
+class CommunityAdmin extends Model
 {
     protected $connection = 'local_gate';
-    protected $table = 'ggid_community';
+    protected $table = 'ggid_communityadmin';
 
     public function application()
     {
-        return $this->belongsTo('App\Application', 'application_id', 'id');
+        return $this->belongsTo('App\Community', 'community_id', 'id');
     }
 
     public function user()
@@ -19,8 +19,8 @@ class Community extends Model
         return $this->belongsTo('App\Myuser', 'user_id', 'id');
     }
 
-    public function communitylist()
+    public function addedby()
     {
-        return $this->hasMany('App\CommunityAdmin');
+        return $this->belongsTo('App\Myuser', 'added_by_id', 'id');
     }
 }

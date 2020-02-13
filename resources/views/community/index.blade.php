@@ -30,9 +30,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>App</th>
+                                <th>Application</th>
                                 <th>Community</th>
-                                <th>Detail</th>
+                                <th>User List</th>
                             </tr>
                         </thead>
                     </table>

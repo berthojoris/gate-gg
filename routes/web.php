@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/point', 'PointController@index')->name('point');
     Route::get('/point/category', 'PointController@category')->name('point_category');
     Route::get('/point/{id}/view', 'PointController@viewPointDetail')->name('point_user_detail');
-    Route::get('/community/{id}/view', 'CommunityController@viewCommunityDetail')->name('community_detail');
+    Route::get('/community/{id}/{any}/userlist', 'CommunityController@viewCommunityDetail')->name('community_detail');
     Route::get('/qrcode', 'QRCodeController@index')->name('qrcode');
     Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
 

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -138,6 +138,9 @@ $(document).ready(function () {
         data: 'email'
       }, {
         data: 'last_login',
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        },
         searchable: false
       }]
     });
@@ -207,9 +210,11 @@ $(document).ready(function () {
           return data.toUpperCase();
         }
       }, {
-        data: 'user_id',
+        data: 'id',
         render: function render(data, type, row) {
-          return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/view">View</a>';
+          return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/' + slugify(row.user.name, {
+            lower: true
+          }) + '/userlist">View</a>';
         }
       }]
     });
@@ -295,6 +300,9 @@ $(document).ready(function () {
         }
       }, {
         data: 'datetime_added',
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        },
         searchable: false
       }],
       initComplete: function initComplete(settings, json) {}
@@ -342,6 +350,9 @@ $(document).ready(function () {
         name: 'ggid_myuser.name'
       }, {
         data: 'datetime_created',
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        },
         searchable: false
       }],
       initComplete: function initComplete(settings, json) {}
@@ -370,6 +381,9 @@ $(document).ready(function () {
         name: 'ggid_qrcode.event_name'
       }, {
         data: 'datetime_created',
+        render: function render(data, type, row) {
+          return data ? moment(data, "YYYYMMDD").fromNow() : '-';
+        },
         searchable: false
       }],
       initComplete: function initComplete(settings, json) {}
@@ -382,7 +396,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!************************************!*\
   !*** multi ./resources/js/main.js ***!
   \************************************/

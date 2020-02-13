@@ -46,6 +46,7 @@
     <script src="{{ asset('template/js/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('template/js/waves.min.js') }}"></script>
     <script src="{{ asset('template/js/app.js') }}"></script>
+    <script src="{{ asset('js/additional.js') }}"></script>
     @stack('library_js')
     @stack('page_js')
 </body>
