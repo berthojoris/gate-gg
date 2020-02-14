@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Community;
-use App\CommunityAdmin;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Excel;
 use App\Exports\CommunityExport;
@@ -33,7 +32,11 @@ class CommunityController extends Controller
             $qUser->select('id', 'name as community_name');
         }, 'communitylist.user' => function($query) {
             $query->select('id', 'email', 'name', 'last_login');
+        }, 'communitylist.addedby' => function($q) {
+            $q->select('id', 'name as addedby');
         }])->whereId($id)->first();
+
+        // dd($data->communitylist);
 
         return view('community.view', compact('data'));
     }
