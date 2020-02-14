@@ -11,14 +11,19 @@ use Maatwebsite\Excel\Facades\Excel;
 class MyuserController extends Controller
 {
 
+    public function index()
+    {
+        return view('user.index');
+    }
+
     public function data()
     {
         return datatables()->of(Myuser::query())->toJson();
     }
 
-    public function index()
+    public function join()
     {
-        return view('user.index');
+        return Myuser::userJoin();
     }
 
     public function downloadExcel()

@@ -482,6 +482,36 @@ $(document).ready(function () {
     });
   }
 
+  if ($("#chart-with-area").length) {
+    $.ajax({
+      type: "GET",
+      url: baseURL + '/data/user-join',
+      dataType: "json",
+      success: function success(response) {
+        var dataLabel = [];
+        var dataValue = [];
+
+        _.forEach(response, function (value) {
+          if (dataLabel.length === 10) {
+            return false;
+          } else {
+            dataLabel.push(value.join_month + "/" + value.join_year);
+            dataValue.push(value.total_join);
+          }
+        });
+
+        new Chartist.Line("#chart-with-area", {
+          labels: _.reverse(dataLabel),
+          series: [dataValue]
+        }, {
+          low: 0,
+          showArea: !0,
+          plugins: [Chartist.plugins.tooltip()]
+        });
+      }
+    });
+  }
+
   $('div.dataTables_filter input').addClass('form-control');
   $('div.dataTables_length select').addClass('form-control');
 });

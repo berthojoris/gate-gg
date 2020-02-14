@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="row">
-
     <div class="col-xl-12 mt-3">
         <div class="row">
             <div class="col-md-3">
@@ -73,6 +72,31 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-5">Total user registration in the last 10 months</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div>
+                            <div id="chart-with-area" class="ct-chart earning ct-golden-section"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
+
+@push('page_js')
+    <script src="{{ asset('template/plugins/chartist/js/chartist.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/chartist/js/chartist-plugin-tooltip.min.js') }}"></script>
+@endpush
+
+@push('page_js')
+    <script src="{{ asset('js/main.js') }}"></script>
+@endpush

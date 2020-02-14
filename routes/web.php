@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/qrcode/usage', 'QRCodeController@dataPointCategory')->name('qrcodeusage_data');
     Route::get('/data/notification', 'NotificationController@data')->name('notification_data');
     Route::get('/data/adminlog', 'AdminLogController@data')->name('adminlog_data');
+    Route::get('/data/user-join', 'MyuserController@join')->name('user_join');
 });
 
 Route::get('/api', 'HomeController@index')->name('api_usage');
