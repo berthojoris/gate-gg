@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/notification', 'NotificationController@index')->name('notification');
     Route::get('/log', 'AdminLogController@index')->name('adminlog');
 
+    Route::get('/test', 'HomeController@test')->name('test');
+
 
     // ================================== Download Excel ==================================
     Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');

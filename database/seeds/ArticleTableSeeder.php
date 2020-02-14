@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 1)->create();
+        factory(App\Article::class, 100000)->create();
     }
 }
