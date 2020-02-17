@@ -26,8 +26,8 @@
                                     <div class="ex-page-content">
                                         <h1 class="text-dark">500!</h1>
                                         <h4 class="mb-4">Sorry, internal server error</h4>
-                                        <p class="mb-5">It will be as simple as Occidental in fact, it will be Occidental to an English person</p>
-                                        <a class="btn btn-primary mb-5 waves-effect waves-light" href="{{ route('home') }}"><i class="mdi mdi-home"></i> Back to Dashboard</a>
+                                        <p class="mb-5"><mark>{{ $exception->getMessage() }}</mark></p>
+                                        <a class="btn btn-primary mb-5 waves-effect waves-light" href="{{ route('home') }}"><i class="mdi mdi-home"></i> Back to dashboard</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 offset-lg-1"><img src="{{ asset('template/images/error.png') }}" alt="" class="img-fluid mx-auto d-block"></div>

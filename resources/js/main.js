@@ -104,6 +104,16 @@ $(document).ready(function() {
                 {
                     data: 'client_id',
                     searchable: false
+                },
+                {
+                    data: 'username',
+                    name: 'ggid_myuser.name'
+                },
+                {
+                    data: 'id',
+                    render: function(data, type, row) {
+                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/application/' + data + '/' + slugify(row.name, { lower: true, }) + '">View</a>'
+                    }
                 }
             ]
         });
@@ -140,7 +150,7 @@ $(document).ready(function() {
                 {
                     data: 'id',
                     render: function(data, type, row) {
-                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/' + slugify(row.user.name, { lower: true, }) + '/userlist">View</a>'
+                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/' + slugify(row.user.name, { lower: true, }) + '">View</a>'
                     }
                 }
             ]

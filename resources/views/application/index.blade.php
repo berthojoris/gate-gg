@@ -34,6 +34,8 @@
                                 <th>Website</th>
                                 <th>Status</th>
                                 <th>Client ID</th>
+                                <th>Created By</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                     </table>
@@ -53,8 +55,6 @@
 @push('library_js')
 <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('template/plugins/datatables/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('template/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
 @endpush
 
 @push('page_js')

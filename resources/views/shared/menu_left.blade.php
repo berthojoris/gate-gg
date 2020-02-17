@@ -9,7 +9,7 @@
                 <li>
                     <a href="{{ route('user') }}" class="{{ request()->is('user') || request()->is('user/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-user-tie"></i><span>User</span></a></li>
                 <li>
-                    <a href="{{ route('application') }}" class="{{ request()->is('application') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-address-card"></i><span>Application</span></a>
+                    <a href="{{ route('application') }}" class="{{ request()->is('application') || request()->is('application/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-address-card"></i><span>Application</span></a>
                 </li>
                 <li>
                     <a href="{{ route('community') }}" class="{{ request()->is('community') || request()->is('community/*') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-user-friends"></i><span>Community</span></a>

@@ -36,8 +36,6 @@ class CommunityController extends Controller
             $q->select('id', 'name as addedby');
         }])->whereId($id)->first();
 
-        // dd($data->communitylist);
-
         return view('community.view', compact('data'));
     }
 }
