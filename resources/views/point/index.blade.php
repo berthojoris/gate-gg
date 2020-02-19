@@ -42,6 +42,8 @@
         </div>
     </div>
 </div>
+
+@include('shared.modal')
 @endsection
 
 @push('library_css')

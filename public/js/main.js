@@ -269,6 +269,23 @@ $(document).ready(function () {
       }],
       initComplete: function initComplete(settings, json) {}
     });
+    $('.dataTable').on('click', 'a.btn-info', function (e) {
+      e.preventDefault();
+      var id = $(this).attr('id'); // $("#modalBody").empty();
+      // $("#modalHeader").html('Point History');
+      // $.ajax({
+      //     type: "GET",
+      //     url: baseURL + "/data/point/modal/" + id,
+      //     dataType: "json",
+      //     success: function(response) {
+      //         _.forEach(response, function(val) {
+      //             $("#modalBody").append('<span class="activity-text"><b>' + moment(val.datetime_added, "YYYYMMDD").fromNow() + '</b> Topup amount ' + val.amount + ' from ' + val.application + '</span>')
+      //         });
+      //         console.log(response);
+      //         $("#modalPage").modal('show');
+      //     }
+      // });
+    });
   }
 
   if ($("#dt_point_category").length) {

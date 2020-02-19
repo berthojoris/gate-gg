@@ -26,8 +26,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/notification', 'NotificationController@index')->name('notification');
     Route::get('/log', 'AdminLogController@index')->name('adminlog');
 
-    Route::get('/test', 'HomeController@test')->name('test');
-
 
     // ================================== Download Excel ==================================
     Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');
@@ -49,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/notification', 'NotificationController@data')->name('notification_data');
     Route::get('/data/adminlog', 'AdminLogController@data')->name('adminlog_data');
     Route::get('/data/user-join', 'MyuserController@join')->name('user_join');
+    Route::get('/data/point/modal/{id}', 'PointController@openModalHistory')->name('open_modal');
 });
 
 Route::get('/api', 'HomeController@index')->name('api_usage');

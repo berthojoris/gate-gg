@@ -36,4 +36,12 @@ class PointController extends Controller
     {
         return view('point.category');
     }
+
+    public function openModalHistory($id)
+    {
+        $data = Point::with(['application', 'user' => function($user) {
+            return $user->select('id', 'name', 'email', 'gender', 'is_active');
+        }])->whereUserId($id)->get();
+        return $data;
+    }
 }
