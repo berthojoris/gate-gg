@@ -103,6 +103,25 @@ $(document).ready(function () {
     });
   }
 
+  function notifInfo(strTitle, strMessage, type) {
+    if (type == "info") {
+      $.growl.info({
+        title: strTitle,
+        message: strMessage
+      });
+    } else if (type == "success") {
+      $.growl.success({
+        title: strTitle,
+        message: strMessage
+      });
+    } else if (type == "error") {
+      $.growl.error({
+        title: strTitle,
+        message: strMessage
+      });
+    }
+  }
+
   if ($("#dt_user").length) {
     var table = $('#dt_user').DataTable({
       processing: true,
@@ -171,22 +190,13 @@ $(document).ready(function () {
           $("#modalPage").modal('hide');
 
           if (response.code == 200) {
-            $.growl.success({
-              title: "Update done",
-              message: response.message
-            });
+            notifInfo("Update done", response.message, "success");
           } else {
-            $.growl.error({
-              title: "Update fail",
-              message: response.message
-            });
+            notifInfo("Update fail", response.message, "error");
           }
         },
         error: function error(request, status, _error) {
-          $.growl.error({
-            title: "Update fail",
-            message: request.statusText + ". Please reload and try again"
-          });
+          notifInfo("Update fail", request.statusText + ". Please reload and try again", "error");
         }
       });
     });
@@ -194,11 +204,7 @@ $(document).ready(function () {
       e.preventDefault();
       var id = $(this).attr('id');
       var data = table.row($(this).parents('tr')).data();
-      $("#modalHeader").html('Edit User');
-      $.growl.info({
-        message: "Getting " + data.name + " data",
-        title: "Please wait..."
-      });
+      notifInfo("Please wait...", "Getting " + data.name + " data", "info");
       $.ajax({
         type: "GET",
         url: route('edituser', id),
