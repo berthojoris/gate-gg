@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
     Route::get('/notification', 'NotificationController@index')->name('notification');
     Route::get('/log', 'AdminLogController@index')->name('adminlog');
+    Route::get('/user/{id}/edit', 'MyuserController@edit')->name('edituser');
 
 
     // ================================== Download Excel ==================================
@@ -48,9 +49,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/adminlog', 'AdminLogController@data')->name('adminlog_data');
     Route::get('/data/user-join', 'MyuserController@join')->name('user_join');
     Route::get('/data/point/modal/{id}', 'PointController@openModalHistory')->name('open_modal');
+    Route::get('/data/city', 'MyuserController@getCity')->name('get_city');
+    Route::post('/update/user', 'MyuserController@updateUser')->name('update_user');
 });
-
-Route::get('/api', 'HomeController@index')->name('api_usage');
-Route::get('/activity', 'HomeController@index')->name('activity');
-Route::get('/report/point', 'HomeController@index')->name('report_point');
-Route::get('/mail', 'HomeController@mail')->name('mail');

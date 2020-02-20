@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use ErrorException;
+use Illuminate\Database\QueryException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Session\TokenMismatchException;
@@ -107,13 +109,18 @@ class Handler extends ExceptionHandler
                     'message' => $exception->getMessage(),
                     'code' => 403
                 ], 403);
-            }
-            else {
+            } else if ($exception instanceof ErrorException) {
                 return response()->json([
-                    'error' => 'Not Define Exception',
-                    'message' => 'Not Define Exception',
-                    'code' => 404
-                ], 404);
+                    'error' => 'Error Exception',
+                    'message' => $exception->getMessage(),
+                    'code' => 500
+                ], 500);
+            } else if ($exception instanceof QueryException) {
+                return response()->json([
+                    'error' => 'Query Exception',
+                    'message' => $exception->getMessage(),
+                    'code' => 500
+                ], 500);
             }
         }
         return parent::render($request, $exception);

@@ -10,6 +10,8 @@ class Myuser extends Model
 {
     protected $connection = 'local_gate';
     protected $table = 'ggid_myuser';
+    protected $guarded = ['id'];
+    public $timestamps = false;
 
     public static function userJoin()
     {

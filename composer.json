@@ -28,6 +28,7 @@
         "spatie/laravel-activitylog": "^3.9",
         "spatie/laravel-analytics": "^3.8",
         "spatie/laravel-mix-preload": "^1.0",
+        "tightenco/ziggy": "^0.8.1",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

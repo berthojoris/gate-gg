@@ -36,6 +36,7 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Last Login</th>
+                                <th></th>
                             </tr>
                         </thead>
                     </table>
@@ -44,17 +45,20 @@
         </div>
     </div>
 </div>
+@include('user.edit')
 @endsection
 
 @push('library_css')
 <link href="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('template/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('template/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+{{-- <link href="{{ asset('template/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css"> --}}
 @endpush
 
 @push('library_js')
 <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+{{-- <script src="{{ asset('template/plugins/sweet-alert2/sweetalert2.min.js') }}"></script> --}}
 @endpush
 
 @push('page_js')

@@ -14,7 +14,9 @@
     <link href="{{ asset('template/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/notif/jquery.growl.css') }}" rel="stylesheet" type="text/css">
     @stack('library_css')
+    @routes
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <script>
         var baseURL = '{{ env('APP_URL') }}';
@@ -47,6 +49,7 @@
     <script src="{{ asset('template/js/waves.min.js') }}"></script>
     <script src="{{ asset('template/js/app.js') }}"></script>
     <script src="{{ asset('js/additional.js') }}"></script>
+    <script src="{{ asset('template/notif/jquery.growl.js') }}"></script>
     @stack('library_js')
     @stack('page_js')
 </body>

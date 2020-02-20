@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\Myuser;
 use App\Jobs\SendEmail;
 use App\Exports\AppExport;
@@ -30,5 +31,41 @@ class MyuserController extends Controller
     {
         $query = Myuser::orderBy('id', 'desc')->get();
         return fastexcel($query)->download('users.csv');
+    }
+
+    public function getCity()
+    {
+        $data = City::orderBy('name', 'asc')->get();
+        return [
+            'count' => count($data),
+            'data' => $data
+        ];
+    }
+
+    public function edit(Myuser $id)
+    {
+        return $id;
+    }
+
+    public function updateUser()
+    {
+        $update = Myuser::find(request('id'))->update([
+            'name' => toStrip(request('name')),
+            'about' => toStrip(request('about')),
+            'address' => toStrip(request('address')),
+            'website' => toStrip(request('website')),
+            'phone' => toStrip(request('phone')),
+            'dob' => request('dob'),
+            'is_active' => request('is_active'),
+            'gender' => request('gender')
+        ]);
+
+        if($update) {
+            return [
+                'error' => null,
+                'message' => "Your data has been updated",
+                'code' => 200
+            ];
+        }
     }
 }

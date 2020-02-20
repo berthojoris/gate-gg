@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    // $("input[name='last_login']").val(moment(response.last_login, "YYYYMMDD").fromNow());
+
     function ucwords(str) {
         return (str + '').replace(/^(.)|\s+(.)/g, function($1) {
             return $1.toUpperCase()
@@ -8,7 +10,7 @@ $(document).ready(function() {
 
 
     if ($("#dt_user").length) {
-        $('#dt_user').DataTable({
+        var table = $('#dt_user').DataTable({
             processing: true,
             serverSide: true,
             ajax: baseURL + '/data/user',
@@ -62,8 +64,88 @@ $(document).ready(function() {
                         return (data) ? moment(data, "YYYYMMDD").fromNow() : '-'
                     },
                     searchable: false
+                },
+                {
+                    data: 'id',
+                    render: function(data, type, row) {
+                        return '<button type="button" class="btn btn-info " id="' + data + '">Edit</button>';
+                    },
+                    searchable: false
                 }
             ]
+        });
+
+        $("#btnSave").on("click", function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: route('update_user'),
+                data: $("#update_user_form").serialize(),
+                dataType: "json",
+                success: function(response) {
+                    $("#modalPage").modal('hide');
+                    if (response.code == 200) {
+                        $.growl.success({
+                            title: "Update done",
+                            message: response.message
+                        });
+                    } else {
+                        $.growl.error({
+                            title: "Update fail",
+                            message: response.message
+                        });
+                    }
+                },
+                error: function(request, status, error) {
+                    $.growl.error({
+                        title: "Update fail",
+                        message: request.statusText + ". Please reload and try again"
+                    });
+                }
+            });
+        });
+
+        $('.dataTable').on('click', '.btn-info', function(e) {
+            e.preventDefault();
+            var id = $(this).attr('id');
+            var data = table.row($(this).parents('tr')).data();
+
+            $("#modalHeader").html('Edit User');
+
+            $.growl.info({
+                message: "Getting " + data.name + " data",
+                title: "Please wait..."
+            });
+
+            $.ajax({
+                type: "GET",
+                url: route('edituser', id),
+                dataType: "json",
+                success: function(response) {
+                    $("input[name='id']").val(response.id);
+                    $("input[name='email']").val(response.email);
+                    $("input[name='name']").val(response.name);
+                    $("input[name='about']").val(response.about);
+                    $("input[name='dob']").val(response.dob);
+                    if (response.is_active == 1) {
+                        $("#is_active").val("1");
+                    } else {
+                        $("#is_active").val("0");
+                    }
+                    if (response.gender == "M") {
+                        $("#gender").val("M");
+                    } else {
+                        $("#gender").val("F");
+                    }
+                    $("input[name='address']").val(response.address);
+                    $("input[name='website']").val(response.website);
+                    $("input[name='phone']").val(response.phone);
+                    $("input[name='date_joined']").val(moment(response.date_joined, "YYYYMMDD").fromNow());
+                    $("input[name='ref_code']").val(response.ref_code);
+
+                    $("#modalPage").modal('show');
+                }
+            });
         });
     }
 
