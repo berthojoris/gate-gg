@@ -2,7 +2,9 @@
 <div class="topbar">
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="{{ route('home') }}" class="logo"></a>
+        <a href="{{ route('home') }}" class="logo">
+            <span><img src="{{ asset('template/images/gg_logo.png') }}" width="192"></span>
+        </a>
     </div>
     <nav class="navbar-custom">
         <ul class="navbar-right list-inline float-right mb-0">
