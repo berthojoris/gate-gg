@@ -49,13 +49,15 @@ $(document).ready(function() {
                 },
                 {
                     data: 'gender',
-                    searchable: false,
+                    searchable: true,
+                    orderable: false,
                     render: function(data, type, row) {
                         return (data == "F") ? "Female" : "Male"
                     }
                 },
                 {
                     data: 'address',
+                    orderable: false,
                     searchable: false,
                     render: function(data, type, row) {
                         if (data == '') {
@@ -66,6 +68,7 @@ $(document).ready(function() {
                 },
                 {
                     data: 'phone',
+                    orderable: false,
                     searchable: false,
                     render: function(data, type, row) {
                         if (data == '') {
@@ -152,6 +155,12 @@ $(document).ready(function() {
                 }
             });
         });
+
+        $(".filterApp").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).attr('id');
+            table.columns(1).search(this.value).draw();
+        });
     }
 
     if ($("#dt_application").length) {
@@ -180,7 +189,9 @@ $(document).ready(function() {
                     }
                 },
                 {
-                    data: 'website'
+                    data: 'website',
+                    searchable: false,
+                    orderable: false
                 },
                 {
                     data: 'status',
@@ -190,7 +201,8 @@ $(document).ready(function() {
                 },
                 {
                     data: 'client_id',
-                    searchable: false
+                    searchable: false,
+                    orderable: false
                 },
                 {
                     data: 'username',

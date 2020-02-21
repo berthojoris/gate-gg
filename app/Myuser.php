@@ -23,4 +23,31 @@ class Myuser extends Model
             ->get();
         return $model;
     }
+
+    public function scopeAlluser($query)
+    {
+        return $query->select('last_login', 'email', 'name', 'dob', 'gender', 'date_joined', 'datetime_updated')
+        ->orderBy('last_login', 'desc');
+    }
+
+    public function scopeOnlyman($query)
+    {
+        return $query->select('last_login', 'email', 'name', 'dob', 'gender', 'date_joined', 'datetime_updated')
+        ->where('gender', 'M')
+        ->orderBy('last_login', 'desc');
+    }
+
+    public function scopeOnlywoman($query)
+    {
+        return $query->select('last_login', 'email', 'name', 'dob', 'gender', 'date_joined', 'datetime_updated')
+        ->where('gender', 'F')
+        ->orderBy('last_login', 'desc');
+    }
+
+    public function scopeLoginbeetween($query, $start, $end)
+    {
+        return $query->select('last_login', 'email', 'name', 'dob', 'gender', 'date_joined', 'datetime_updated')
+        ->whereBetween('last_login', [$start, $end])
+        ->orderBy('last_login', 'desc');
+    }
 }

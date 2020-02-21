@@ -30,6 +30,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     // ================================== Download Excel ==================================
     Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');
+    Route::get('/download/user/man', 'MyuserController@downloadExcelMan')->name('download_user_man');
+    Route::get('/download/user/woman', 'MyuserController@downloadExcelWoman')->name('download_user_woman');
+    Route::get('/download/user/week', 'MyuserController@downloadWeek')->name('download_user_week');
+    Route::get('/download/user/month', 'MyuserController@downloadMonth')->name('download_user_month');
     Route::get('/download/application', 'ApplicationController@downloadExcel')->name('download_application');
     Route::get('/download/community', 'CommunityController@downloadExcel')->name('download_community');
     Route::get('/download/point', 'PointController@downloadExcel')->name('download_point');
