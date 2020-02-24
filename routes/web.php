@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // ================================== Datatable API ==================================
     Route::get('/data/application', 'ApplicationController@data')->name('application_data');
-    Route::get('/data/user', 'MyuserController@data')->name('user_data');
+    Route::get('/data/user', 'MyuserController@dataCustomQuery')->name('user_data');
     Route::get('/data/community', 'CommunityController@data')->name('community_data');
     Route::get('/data/point', 'PointController@data')->name('point_data');
     Route::get('/data/pointcategory', 'PointController@dataPointCategory')->name('point_data');

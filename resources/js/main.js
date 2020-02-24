@@ -8,6 +8,13 @@ $(document).ready(function() {
         })
     }
 
+    function refreshTable() {
+        $('.dataTable').each(function() {
+            dt = $(this).dataTable();
+            dt.fnDraw();
+        })
+    }
+
     function notifInfo(strTitle, strMessage, type) {
         if (type == "info") {
             $.growl.info({
@@ -111,6 +118,7 @@ $(document).ready(function() {
                     } else {
                         notifInfo("Update fail", response.message, "error")
                     }
+                    refreshTable()
                 },
                 error: function(request, status, error) {
                     notifInfo("Update fail", request.statusText + ". Please reload and try again", "error")

@@ -9,6 +9,7 @@ use App\Jobs\SendEmail;
 use App\Exports\AppExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\Facades\DataTables;
 
 class MyuserController extends Controller
 {
@@ -16,6 +17,25 @@ class MyuserController extends Controller
     public function index()
     {
         return view('user.index');
+    }
+
+    public function dataCustomQuery()
+    {
+        $users = Myuser::select(['id','name','gender','address','phone','email','last_login'])
+        ->where('name', '!=', '');
+        return DataTables::of($users)->make();
+    }
+
+    public function dataCustomCollection()
+    {
+        $users = Myuser::select(['id','name','gender','address','phone','email','last_login'])->get();
+        $filter = $users->filter(function($value, $key) {
+            if ($value['name'] != '') {
+                return true;
+            }
+        });
+        $filter->all();
+        return DataTables::of($filter)->make();
     }
 
     public function data()
@@ -78,7 +98,8 @@ class MyuserController extends Controller
 
     public function updateUser()
     {
-        $update = Myuser::find(request('id'))->update([
+        $update = Myuser::find(request('id'))
+        ->update([
             'name' => toStrip(request('name')),
             'about' => toStrip(request('about')),
             'address' => toStrip(request('address')),
