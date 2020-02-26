@@ -261,3 +261,9 @@ div.dataTables_wrapper {
     margin: auto;
     margin-left: -20px;
 }
+
+.iconExcel {
+    margin-top: 2px;
+    margin-left: -20px;
+    width: 30px;
+}

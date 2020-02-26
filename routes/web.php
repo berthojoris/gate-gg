@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/download/point', 'PointController@downloadExcel')->name('download_point');
     Route::get('/download/qrcode', 'QRCodeController@downloadQrcode')->name('download_qrcode');
     Route::get('/download/qrcode/usage', 'QRCodeController@downloadQrcodeUsage')->name('download_qrcode_usage');
+    Route::get('/download/application/{appid}/user', 'ApplicationController@downloadUserByApp')->name('download_app_user');
 
 
     // ================================== Datatable API ==================================

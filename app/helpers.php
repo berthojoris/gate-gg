@@ -11,3 +11,11 @@ if (! function_exists('toStrip')) {
         return ($string == '' || is_null($string) || empty($string)) ? '-' : $string;
     }
 }
+
+if (! function_exists('memberSuryanation')) {
+    function memberSuryanation() {
+        return [
+            109, 64, 62, 32, 30, 1
+        ];
+    }
+}
