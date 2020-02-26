@@ -42,7 +42,7 @@ class ApplicationController extends Controller
         $unique = $data->unique('user.email');
         $unique->values()->all();
 
-        return view('application.view', compact('unique', 'id'));
+        return view('application.only_count', compact('unique', 'id'));
     }
 
     public function downloadExcel()
@@ -53,11 +53,6 @@ class ApplicationController extends Controller
 
     public function downloadUserByApp($appid)
     {
-        $count = ApplicationMember::whereApplicationId($appid)->get()->count();
-        if($count > 5000) {
-            return (new AppmemberExport($appid))->download('application_member.html', Excel::HTML);
-        } else {
-            return (new AppmemberExport($appid))->download('application_member.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
-        }
+        return (new AppmemberExport($appid))->download('application_member.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
 }
