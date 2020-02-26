@@ -13,6 +13,8 @@ class Myuser extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
 
+    CONST adminUser = [1];
+
     public static function userJoin()
     {
         $model = DB::connection('local_gate')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Myuser;
 use Carbon\Carbon;
+use App\Application;
 use App\Jobs\SendEmail;
 use App\Exports\AppExport;
 use Illuminate\Http\Request;
@@ -13,6 +14,17 @@ use Yajra\DataTables\Facades\DataTables;
 
 class MyuserController extends Controller
 {
+
+    public function updateUserGate()
+    {
+        dd(request()->all());
+    }
+
+    public function addUser()
+    {
+        $selectItem = Application::where('name', '!=', '')->pluck('name', 'id');
+        return view('user.add_user_dashboard', compact('selectItem'));
+    }
 
     public function index()
     {

@@ -5,7 +5,7 @@
     <h4 class="font-20 m-b-5">Welcome Back !</h4>
     <p class="text-white-50 mb-4">Sign in to continue to GATE UI.</p>
     <a href="{{ url('/') }}" class="logo logo-admin">
-        <img src="{{ asset('template/images/logo-sm.png') }}" height="24" alt="logo">
+        <img src="{{ asset('template/images/gg_icon.png') }}" height="24" alt="logo">
     </a>
 </div>
 <div class="account-card-content">
