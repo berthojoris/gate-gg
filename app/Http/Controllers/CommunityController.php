@@ -22,7 +22,7 @@ class CommunityController extends Controller
 
     public function downloadExcel()
     {
-        return (new CommunityExport)->download('community.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
+        return (new CommunityExport)->download('community.csv', Excel::CSV);
     }
 
     public function viewCommunityDetail($id)

@@ -11,7 +11,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-right d-none d-md-block">
-                    <a href="{{ route('download_point') }}"><img src="{{ asset('template/images/excel.png') }}" alt="Download" class="iconExcel"></a>
+                    <a href="{{ route('download_point_category') }}"><img src="{{ asset('template/images/excel.png') }}" alt="Download" class="iconExcel"></a>
                 </div>
             </div>
         </div>

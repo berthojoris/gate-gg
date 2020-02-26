@@ -11,9 +11,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-right d-none d-md-block">
-                    <div class="dropdown">
-                    <a href="{{ route('download_qrcode') }}" class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light"><i class="mdi mdi-download mr-2"></i> Download</a>
-                    </div>
+                    <a href="{{ route('download_qrcode') }}"><img src="{{ asset('template/images/excel.png') }}" alt="Download" class="iconExcel"></a>
                 </div>
             </div>
         </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Point;
+use Maatwebsite\Excel\Excel;
+use App\Exports\PointCategoryExport;
 
 class PointController extends Controller
 {
@@ -35,6 +37,11 @@ class PointController extends Controller
     public function category()
     {
         return view('point.category');
+    }
+
+    public function downloadPointCategoryExcel()
+    {
+        return (new PointCategoryExport)->download('point_category.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
 
     public function openModalHistory($id)
