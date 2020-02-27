@@ -5,7 +5,7 @@
     <div class="col-lg-6 mt-3">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title mb-2">Add your new user</h4>
+                <h4 class="header-title mb-2">Create or update user</h4>
                 <hr>
                 <form id="update_user_form" action="{{ route('admin_user_update') }}" method="POST">
                     @csrf
@@ -38,10 +38,28 @@
                         <label for="name" class="col-sm-4 col-form-label">Assign To App</label>
                         <div class="col-sm-8">
                             <select name="assign_app" id="assign_app" class="form-control">
-                                <option value="ADMIN">Administrator</option>
+                                <option value="NON">Non</option>
                                 @foreach($selectItem as $key => $val)
                                     <option value="{!! $key !!}">{!! $val !!}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-4 col-form-label">Privilege</label>
+                        <div class="col-sm-8">
+                            <select name="privilege" id="privilege" class="form-control">
+                                <option value="USER">User</option>
+                                <option value="ADMIN">Administrator</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select name="status" id="status" class="form-control">
+                                <option value="ACTIVE">Active</option>
+                                <option value="NONACTIVE">Nonactive</option>
                             </select>
                         </div>
                     </div>
@@ -56,7 +74,52 @@
         </div>
     </div>
     <div class="col-lg-6 mt-3">
-
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title mb-2">List user</h4>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-sm m-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Privileges</th>
+                                <th>Status</th>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->userprivilege->privilege }}</td>
+                                <td><span class="badge badge-{{ ($user->userprivilege->status == "ACTIVE") ? "success" : "danger" }}">{{ $user->userprivilege->status }}</span></td>
+                                <td><button id="{{ $user->id }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Update</button></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
+
+@push('library_css')
+<link href="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('template/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('template/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+@endpush
+
+@push('library_js')
+<script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+@endpush
+
+@push('page_js')
+    <script src="{{ asset('js/main.js') }}"></script>
+@endpush
+

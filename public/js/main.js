@@ -643,6 +643,37 @@ $(document).ready(function () {
     });
   }
 
+  if ($("#dt_user_dashboard").length) {
+    $('#dt_user_dashboard').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: baseURL + '/data/user/dashboard',
+      order: [[0, "desc"]],
+      language: {
+        processing: '<div class="circle-inner"></div>'
+      },
+      columns: [{
+        data: 'id',
+        name: 'users.id',
+        visible: false,
+        searchable: false
+      }, {
+        data: 'name',
+        name: 'users.name'
+      }, {
+        data: 'email',
+        name: 'users.email'
+      }, {
+        data: 'privilege',
+        name: 'userprivilege.privilege'
+      }, {
+        data: 'status',
+        name: 'userprivilege.status'
+      }],
+      initComplete: function initComplete(settings, json) {}
+    });
+  }
+
   $('div.dataTables_filter input').addClass('form-control');
   $('div.dataTables_length select').addClass('form-control');
 });

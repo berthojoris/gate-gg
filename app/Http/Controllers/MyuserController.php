@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Session;
 use App\City;
 use App\User;
 use App\Myuser;
 use Carbon\Carbon;
 use App\Application;
+use App\UserPrivilege;
 use App\Jobs\SendEmail;
 use App\Exports\AppExport;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
@@ -18,13 +20,12 @@ use Illuminate\Support\Facades\Validator;
 
 class MyuserController extends Controller
 {
-
-    public function updateUserGate(Request $request)
+    public function createUserDashboard(Request $request)
     {
         Gate::authorize('is-admin');
         $valid = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
 
@@ -33,7 +34,19 @@ class MyuserController extends Controller
                 ->withErrors($valid)
                 ->withInput();
         } else {
-            User::create($request->all());
+            DB::transaction(function () {
+                $user = User::create([
+                    'name' => request('name'),
+                    'email' => request('email'),
+                    'password' => bcrypt(request('password')),
+                    'remember_token' => Str::random(10)
+                ]);
+                UserPrivilege::create([
+                    'user_id' => $user->id,
+                    'privilege' => request('privilege'),
+                    'status' => request('status')
+                ]);
+            }, 2);
             flash('Data has been saved!')->success();
             return redirect()->back();
         }
@@ -43,12 +56,26 @@ class MyuserController extends Controller
     {
         Gate::authorize('is-admin');
         $selectItem = Application::where('name', '!=', '')->pluck('name', 'id');
-        return view('user.add_user_dashboard', compact('selectItem'));
+        $users = User::with('userprivilege')->orderBy('id', 'desc')->get();
+        return view('user.add_user_dashboard', compact('selectItem', 'users'));
     }
 
     public function index()
     {
         return view('user.index');
+    }
+
+    public function getUserDashboard()
+    {
+        $users = User::with('userprivilege')->select('users.*');
+        return Datatables::of($users)
+            ->editColumn('privilege', function($user) {
+                return $user->userprivilege->privilege;
+            })
+            ->editColumn('status', function($user) {
+                return $user->userprivilege->status;
+            })
+            ->make(true);
     }
 
     public function dataCustomQuery()

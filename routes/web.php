@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/log', 'AdminLogController@index')->name('adminlog');
         Route::get('/user/{id}/edit', 'MyuserController@edit')->name('edituser');
         Route::get('/admin/user/add', 'MyuserController@addUser')->name('admin_user_add');
-        Route::post('/admin/user/update', 'MyuserController@updateUserGate')->name('admin_user_update');
+        Route::post('/admin/user/update', 'MyuserController@createUserDashboard')->name('admin_user_update');
 
         // ================================== Download Excel ==================================
         Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');
@@ -61,4 +61,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/user-join', 'MyuserController@join')->name('user_join');
     Route::get('/data/point/modal/{id}', 'PointController@openModalHistory')->name('open_modal');
     Route::get('/data/city', 'MyuserController@getCity')->name('get_city');
+    Route::get('/data/user/dashboard', 'MyuserController@getUserDashboard')->name('get_user_dashboard');
 });
