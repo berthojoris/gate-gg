@@ -8,7 +8,7 @@ Route::get('/', function () {
     }
 });
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['access-log']], function () {

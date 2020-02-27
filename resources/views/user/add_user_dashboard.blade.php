@@ -31,7 +31,7 @@
                     <div class="form-group row">
                         <label for="password_confirm" class="col-sm-4 col-form-label">Confirm Password</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="password" id="password_confirm" name="password_confirm" value="" autocomplete="off">
+                            <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" value="" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -2,26 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\City;
+use App\User;
 use App\Myuser;
 use Carbon\Carbon;
 use App\Application;
 use App\Jobs\SendEmail;
 use App\Exports\AppExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class MyuserController extends Controller
 {
 
-    public function updateUserGate()
+    public function updateUserGate(Request $request)
     {
-        dd(request()->all());
+        Gate::authorize('is-admin');
+        $valid = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        if ($valid->fails()) {
+            return redirect()->back()
+                ->withErrors($valid)
+                ->withInput();
+        } else {
+            User::create($request->all());
+            flash('Data has been saved!')->success();
+            return redirect()->back();
+        }
     }
 
     public function addUser()
     {
+        Gate::authorize('is-admin');
         $selectItem = Application::where('name', '!=', '')->pluck('name', 'id');
         return view('user.add_user_dashboard', compact('selectItem'));
     }

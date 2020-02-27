@@ -26,7 +26,9 @@
                                     <div class="ex-page-content">
                                         <h1 class="text-dark">401!</h1>
                                         <h4 class="mb-4">Sorry, you are unauthorized</h4>
-                                        <p class="mb-5"><mark>{{ $exception->getMessage() }}</mark></p>
+                                        @if ($exception->getMessage() != "")
+                                            <p class="mb-5"><mark>{{ $exception->getMessage() }}</mark></p>
+                                        @endif
                                         <a class="btn btn-primary mb-5 waves-effect waves-light" href="{{ route('home') }}"><i class="mdi mdi-home"></i> Back to dashboard</a>
                                     </div>
                                 </div>

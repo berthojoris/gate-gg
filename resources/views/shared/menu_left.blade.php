@@ -3,11 +3,12 @@
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
                 @if (in_array(auth()->user()->id, \App\Myuser::adminUser))
-                    <li class="menu-title">Administrator</li>
+
+                @endif
+                <li class="menu-title">Administrator</li>
                     <li>
                         <a href="{{ route('admin_user_add') }}" class="{{ request()->is('admin/user/add') ? 'mm-active' : 'mm-show' }}"><i class="fas fa-user-plus"></i><span>User Add</span></a>
                     </li>
-                @endif
                 <li class="menu-title">Main</li>
                 <li>
                     <a href="{{ route('home') }}" class="{{ request()->is('home') ? 'mm-active' : 'mm-show' }}"><i class="ti-home"></i><span>Dashboard</span></a>
