@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/download/application/{appid}/user', 'ApplicationController@downloadUserByApp')->name('download_app_user');
 
         Route::post('/update/user', 'MyuserController@updateUser')->name('update_user');
+
+        Route::get('/data/region', 'MyuserController@getRegion')->name('get_region');
     });
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\User;
 use App\Myuser;
+use App\Region;
 use Carbon\Carbon;
 use App\Application;
 use App\UserPrivilege;
@@ -176,5 +177,10 @@ class MyuserController extends Controller
                 'code' => 200
             ];
         }
+    }
+
+    public function getRegion()
+    {
+        return Region::all();
     }
 }
