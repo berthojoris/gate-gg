@@ -23,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => 'Bertho Joris',
         'email' => 'bertho@gmail.com',
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '$2y$10$U5szJ1sxc5RSkDOZdyw4ruRUptqHZOkqpgbwqD362NP.dyscbiSOi', // malaquena
         'remember_token' => Str::random(10),
     ];
 });
@@ -32,6 +32,7 @@ $factory->define(UserPrivilege::class, function (Faker $faker) {
     return [
         'user_id' => 1,
         'privilege' => 'ADMIN',
-        'status' => 'ACTIVE'
+        'status' => 'ACTIVE',
+        'assign_to' => 'ALL'
     ];
 });

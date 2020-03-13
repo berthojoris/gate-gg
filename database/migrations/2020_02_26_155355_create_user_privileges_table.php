@@ -18,6 +18,7 @@ class CreateUserPrivilegesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->enum('privilege', ['ADMIN', 'USER']);
             $table->enum('status', ['ACTIVE', 'NONACTIVE']);
+            $table->string('assign_to')->nullable();
             $table->timestamps();
         });
     }

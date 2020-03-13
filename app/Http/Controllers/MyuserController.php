@@ -21,6 +21,47 @@ use Illuminate\Support\Facades\Validator;
 
 class MyuserController extends Controller
 {
+    public function updateUserDashboard($id)
+    {
+        Gate::authorize('is-admin');
+
+        $valid = Validator::make(request()->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password_confirmation' => 'required_with:password',
+            'password' => 'confirmed',
+        ]);
+
+        if ($valid->fails()) {
+            return redirect()->back()->withErrors($valid)->withInput();
+        } else {
+            DB::transaction(function () use ($id) {
+                if(request()->has('password')) {
+                    User::find($id)->update([
+                        'name' => request('name'),
+                        'email' => request('email'),
+                        'password' => bcrypt(request('password')),
+                        'remember_token' => Str::random(10)
+                    ]);
+                } else {
+                    User::find($id)->update([
+                        'name' => request('name'),
+                        'email' => request('email'),
+                        'remember_token' => Str::random(10)
+                    ]);
+                }
+
+                UserPrivilege::whereUserId($id)->update([
+                    'privilege' => request('privilege'),
+                    'status' => request('status'),
+                    'assign_to' => request('assign_app')
+                ]);
+            }, 2);
+            flash('Data has been updated!')->success();
+            return redirect()->back();
+        }
+    }
+
     public function createUserDashboard(Request $request)
     {
         Gate::authorize('is-admin');
@@ -45,7 +86,8 @@ class MyuserController extends Controller
                 UserPrivilege::create([
                     'user_id' => $user->id,
                     'privilege' => request('privilege'),
-                    'status' => request('status')
+                    'status' => request('status'),
+                    'assign_to' => request('assign_app')
                 ]);
             }, 2);
             flash('Data has been saved!')->success();
@@ -59,6 +101,14 @@ class MyuserController extends Controller
         $selectItem = Application::where('name', '!=', '')->pluck('name', 'id');
         $users = User::with('userprivilege')->orderBy('id', 'desc')->get();
         return view('user.add_user_dashboard', compact('selectItem', 'users'));
+    }
+
+    public function editUser(User $user)
+    {
+        Gate::authorize('is-admin');
+        $selectItem = Application::where('name', '!=', '')->pluck('name', 'id');
+        $users = User::with('userprivilege')->orderBy('id', 'desc')->get();
+        return view('user.edit_user_dashboard', compact('selectItem', 'users', 'user'));
     }
 
     public function index()
