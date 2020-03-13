@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin/user/edit/{user}', 'MyuserController@editUser')->name('admin_user_edit');
         Route::post('/admin/user/create', 'MyuserController@createUserDashboard')->name('admin_user_create');
         Route::post('/admin/user/update/{id}', 'MyuserController@updateUserDashboard')->name('admin_user_update');
+        Route::get('/profile', 'MyuserController@profile')->name('profile');
+        Route::post('/profile/update', 'MyuserController@updateProfile')->name('user_update_profile');
 
         // ================================== Download Excel ==================================
         Route::get('/download/user', 'MyuserController@downloadExcel')->name('download_user');

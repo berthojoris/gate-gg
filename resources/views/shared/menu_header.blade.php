@@ -22,8 +22,15 @@
             <!-- notification -->
             <li class="dropdown notification-list list-inline-item">
                 <div class="dropdown notification-list nav-pro-img">
-                    <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><img src="{{ asset('template/images/users/user-4.jpg') }}" alt="user" class="rounded-circle"></a>
+                    <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        @if (auth()->user()->profile_picture == "default")
+                            <img src="{{ asset('template/images/dummy.png') }}" alt="user" class="rounded-circle">
+                        @else
+                            <img src="{{ asset('template/images/dummy.png') }}" alt="user" class="rounded-circle">
+                        @endif
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                        <a class="dropdown-item" href="{{ route('profile') }}"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
                         <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi mdi-power text-danger"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

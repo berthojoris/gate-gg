@@ -21,6 +21,22 @@ use Illuminate\Support\Facades\Validator;
 
 class MyuserController extends Controller
 {
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('user.profile', compact('user'));
+    }
+
+    public function updateProfile()
+    {
+        $user = auth()->user();
+        // Save user data
+        // Check if upload image save to disk
+        // Redirect with flash message
+        flash('Data has been updated!')->success();
+        return redirect()->back();
+    }
+
     public function updateUserDashboard($id)
     {
         Gate::authorize('is-admin');

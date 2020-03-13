@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="password_confirm" class="col-sm-4 col-form-label"></label>
+                        <label class="col-sm-4 col-form-label"></label>
                         <div class="col-sm-8">
                             <input type="submit" value="Submit" class="btn btn-primary waves-effect waves-light float-right">
                         </div>
