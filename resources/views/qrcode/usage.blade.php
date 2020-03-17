@@ -23,17 +23,19 @@
         @include('flash::message')
         <div class="card">
             <div class="card-body">
-                <table id="dt_qrcode_usage" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>User</th>
-                            <th>Event</th>
-                            <th>Point</th>
-                            <th>Redeem Time</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="dt_qrcode_usage" class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Event</th>
+                                <th>Point</th>
+                                <th>Redeem Time</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
