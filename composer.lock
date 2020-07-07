@@ -3296,7 +3296,11 @@
                 "secret-key cryptography",
                 "side-channel resistant"
             ],
+<<<<<<< HEAD
             "time": "2020-03-20T21:48:09+00:00"
+=======
+            "time": "2019-12-30T03:11:08+00:00"
+>>>>>>> 6e9f8be2c1b8d9e6617b1fff03eecc21d97f3a8f
         },
         {
             "name": "php-http/message-factory",
@@ -4252,6 +4256,7 @@
         },
         {
             "name": "spatie/laravel-activitylog",
+<<<<<<< HEAD
             "version": "3.14.2",
             "source": {
                 "type": "git",
@@ -4262,6 +4267,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/f1261c461ee4a92fd1e72012b516147ba28a91bb",
                 "reference": "f1261c461ee4a92fd1e72012b516147ba28a91bb",
+=======
+            "version": "3.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-activitylog.git",
+                "reference": "9af498a8d2e08a7a46790e306a011e1e281c78db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/9af498a8d2e08a7a46790e306a011e1e281c78db",
+                "reference": "9af498a8d2e08a7a46790e306a011e1e281c78db",
+>>>>>>> 6e9f8be2c1b8d9e6617b1fff03eecc21d97f3a8f
                 "shasum": ""
             },
             "require": {
@@ -4324,7 +4341,11 @@
                 "spatie",
                 "user"
             ],
+<<<<<<< HEAD
             "time": "2020-05-19T14:31:33+00:00"
+=======
+            "time": "2020-03-13T12:45:34+00:00"
+>>>>>>> 6e9f8be2c1b8d9e6617b1fff03eecc21d97f3a8f
         },
         {
             "name": "spatie/laravel-analytics",
@@ -4445,7 +4466,11 @@
                 "laravel-mix-preload",
                 "spatie"
             ],
+<<<<<<< HEAD
             "time": "2020-06-26T07:30:09+00:00"
+=======
+            "time": "2020-01-20T14:02:45+00:00"
+>>>>>>> 6e9f8be2c1b8d9e6617b1fff03eecc21d97f3a8f
         },
         {
             "name": "swiftmailer/swiftmailer",
