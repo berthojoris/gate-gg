@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Myuser;
 use App\Community;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Excel;
@@ -37,5 +38,11 @@ class CommunityController extends Controller
         }])->whereId($id)->first();
 
         return view('community.view', compact('data'));
+    }
+
+    public function viewUserViaCommunity($id, $iduser)
+    {
+        $data = Myuser::with('city')->where('id', $iduser)->first();
+        return view('community.view_user', compact('data'));
     }
 }

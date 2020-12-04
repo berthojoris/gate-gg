@@ -6,13 +6,14 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">You can download this data</li>
+                    <li class="breadcrumb-item active">Download</li>
                 </ol>
             </div>
             <div class="col-sm-6">
                 <div class="float-right d-none d-md-block">
                     <div class="dropdown">
-                    <a href="{{ route('download_community') }}"><img src="{{ asset('template/images/excel.png') }}" alt="Download" class="iconExcel"></a>
+                        <a href="{{ route('download_community') }}"><img src="{{ asset('template/images/excel.png') }}"
+                                alt="Download" class="iconExcel"></a>
                     </div>
                 </div>
             </div>
@@ -55,5 +56,5 @@
 @endpush
 
 @push('page_js')
-    <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 @endpush

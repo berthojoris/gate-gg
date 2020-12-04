@@ -52,4 +52,9 @@ class Myuser extends Model
         ->whereBetween('last_login', [$start, $end])
         ->orderBy('last_login', 'desc');
     }
+
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
 }

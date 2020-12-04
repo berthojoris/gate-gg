@@ -1,8 +1,22 @@
 <?php
 
+use Carbon\Carbon;
+
 if (! function_exists('humanDateRead')) {
     function humanDateRead($date) {
-        return \Carbon\Carbon::createFromTimeStamp(strtotime($date))->diffForHumans();
+        return Carbon::createFromTimeStamp(strtotime($date))->diffForHumans();
+    }
+}
+
+if (! function_exists('indonesianDate')) {
+    function indonesianDate($timestamp) {
+        return Carbon::parse($timestamp)->format('d M Y');
+    }
+}
+
+if (! function_exists('indonesianDateTime')) {
+    function indonesianDateTime($timestamp) {
+        return Carbon::parse($timestamp)->format('d M Y h:i:s');
     }
 }
 

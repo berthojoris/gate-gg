@@ -17,13 +17,19 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/user', 'MyuserController@index')->name('user');
         Route::get('/application', 'ApplicationController@index')->name('application');
         Route::get('/application/{id}/{any}', 'ApplicationController@viewApplicationDetail')->name('application_detail');
+
         Route::get('/community', 'CommunityController@index')->name('community');
         Route::get('/community/{id}/{any}', 'CommunityController@viewCommunityDetail')->name('community_detail');
+        Route::get('/community/{id}/view-user/{iduser}', 'CommunityController@viewUserViaCommunity')->name('community_user_view');
+
         Route::get('/point', 'PointController@index')->name('point');
         Route::get('/point/category', 'PointController@category')->name('point_category');
         Route::get('/point/{id}/{any}/history', 'PointController@viewPointDetail')->name('point_user_detail');
+
         Route::get('/qrcode', 'QRCodeController@index')->name('qrcode');
         Route::get('/qrcode/usage', 'QRCodeController@usage')->name('qrcode_usage');
+
+        // Admin Route
         Route::get('/notification', 'NotificationController@index')->name('notification');
         Route::get('/log', 'AdminLogController@index')->name('adminlog');
         Route::get('/user/{id}/edit', 'MyuserController@edit')->name('edituser');
