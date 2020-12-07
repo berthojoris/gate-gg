@@ -63,7 +63,7 @@ return [
             ]) : [],
         ],
 
-        'gate' => [
+        'online_gate' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('GATE_HOST', '127.0.0.1'),
