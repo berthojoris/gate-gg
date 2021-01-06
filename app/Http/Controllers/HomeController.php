@@ -18,17 +18,18 @@ class HomeController extends Controller
 
     public function index()
     {
-        $totalUser = Myuser::count();
-        $totalApp = Application::count();
-        $totalCommunity = Community::count();
-        $totalPoint = Point::select('user_id')
-            ->groupBy('user_id')
-            ->get()
-            ->count();
-        $totalQrCode = QRCode::count();
-        $totalQrCodeUsage = QRCodeUserRelation::count();
+        // $totalUser = Myuser::count();
+        // $totalApp = Application::count();
+        // $totalCommunity = Community::count();
+        // $totalPoint = Point::select('user_id')
+        //     ->groupBy('user_id')
+        //     ->get()
+        //     ->count();
+        // $totalQrCode = QRCode::count();
+        // $totalQrCodeUsage = QRCodeUserRelation::count();
 
-        return view('home.index', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint', 'totalQrCode', 'totalQrCodeUsage'));
+        // return view('home.index', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint', 'totalQrCode', 'totalQrCodeUsage'));
+        return view('home.empty');
     }
 
     public function mail()
