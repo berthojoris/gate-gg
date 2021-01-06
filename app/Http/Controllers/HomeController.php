@@ -28,7 +28,7 @@ class HomeController extends Controller
         $totalQrCode = QRCode::count();
         $totalQrCodeUsage = QRCodeUserRelation::count();
 
-        return view('home.index', compact('totalUser', 'totalApp', 'totalCommunity', 'totalPoint', 'totalQrCode', 'totalQrCodeUsage'));
+        return view('home.empty');
     }
 
     public function mail()
