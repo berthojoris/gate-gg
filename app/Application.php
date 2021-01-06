@@ -13,7 +13,7 @@ class Application extends Model
 
     public static function data()
     {
-        $model = DB::connection('local_gate')->table('ggid_application')
+        $model = DB::connection('online_gate')->table('ggid_application')
             ->select(DB::raw('ggid_application.*, ggid_myuser.name as username, ggid_myuser.email'))
             ->join('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_application.user_id');
         return DataTables::of($model)->toJson();

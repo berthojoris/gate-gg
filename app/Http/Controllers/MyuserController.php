@@ -147,8 +147,7 @@ class MyuserController extends Controller
 
     public function dataCustomQuery()
     {
-        $users = Myuser::select(['id','name','gender','address','phone','email','last_login'])
-        ->where('name', '!=', '');
+        $users = Myuser::select(['id','name','gender','address','phone','email','last_login'])->where('name', '!=', '');
         return DataTables::of($users)->make();
     }
 
