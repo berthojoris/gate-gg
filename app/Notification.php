@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
-    protected $connection = 'local_gate';
+    protected $connection = 'online_gate';
     protected $table = 'notifications_notification';
 
     public function recipient()

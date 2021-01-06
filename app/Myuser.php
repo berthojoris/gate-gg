@@ -8,7 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class Myuser extends Model
 {
-    protected $connection = 'local_gate';
+    protected $connection = 'online_gate';
     protected $table = 'ggid_myuser';
     protected $guarded = ['id'];
     public $timestamps = false;
@@ -17,7 +17,7 @@ class Myuser extends Model
 
     public static function userJoin()
     {
-        $model = DB::connection('local_gate')
+        $model = DB::connection('online_gate')
             ->table('ggid_myuser')
             ->select(DB::raw("COUNT(*) AS total_join, MONTH(date_joined) AS join_month, YEAR(date_joined) AS join_year"))
             ->groupBy(DB::raw('YEAR(date_joined), MONTH(date_joined)'))

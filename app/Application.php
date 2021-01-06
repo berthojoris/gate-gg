@@ -8,7 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class Application extends Model
 {
-    protected $connection = 'local_gate';
+    protected $connection = 'online_gate';
     protected $table = 'ggid_application';
 
     public static function data()

@@ -8,7 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AdminLog extends Model
 {
-    protected $connection = 'local_gate';
+    protected $connection = 'online_gate';
     protected $table = 'django_admin_log';
 
     public static function data()

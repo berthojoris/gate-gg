@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApplicationMember extends Model
 {
-    protected $connection = 'local_gate';
+    protected $connection = 'online_gate';
     protected $table = 'ggid_applicationmember';
 
     public function user()
