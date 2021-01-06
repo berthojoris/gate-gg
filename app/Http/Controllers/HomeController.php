@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $totalCommunity = Community::count();
         // $totalPoint = Point::groupBy('user_id')->get()->count();
-        $totalPoint = DB::table('ggid_point')->count();
+        $totalPoint = DB::connection('online_gate')->table('ggid_point')->count();
         return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
