@@ -19,7 +19,8 @@ class HomeController extends Controller
     public function index()
     {
         $totalCommunity = Community::count();
-        return view('home.index', compact('totalCommunity'));
+        $totalPoint = Point::groupBy('user_id')->get()->count();
+        return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
     public function mail()
