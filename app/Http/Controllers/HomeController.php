@@ -21,7 +21,8 @@ class HomeController extends Controller
     {
         $totalCommunity = DB::connection('online_gate')->table('ggid_community')->count();
         $totalPoint = Myuser::has('point')->count();
-        return view('home.index', compact('totalCommunity', 'totalPoint'));
+        $userRegistered = Myuser::count();
+        return view('home.index', compact('totalCommunity', 'totalPoint', 'userRegistered'));
     }
 
     public function mail()
