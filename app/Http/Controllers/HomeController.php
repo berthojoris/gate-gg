@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         $totalCommunity = DB::connection('online_gate')->table('ggid_community')->count();
-        $totalPoint = Point::has('point')->count();
+        $totalPoint = Myuser::has('point')->count();
         return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
