@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $totalCommunity = Community::count();
-        return view('home.index', compact('totalCommunity', 'totalPoint'));
+        return view('home.index', compact('totalCommunity'));
     }
 
     public function mail()
