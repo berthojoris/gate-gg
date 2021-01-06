@@ -19,9 +19,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $totalCommunity = Community::count();
-        // $totalPoint = Point::groupBy('user_id')->get()->count();
-        $totalPoint = DB::connection('online_gate')->table('ggid_point')->count();
+        $totalCommunity = DB::connection('online_gate')->table('ggid_community')->count();
+        $totalPoint = DB::connection('online_gate')
+            ->table('ggid_point')
+            ->groupBy('user_id')
+            ->count();
         return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
