@@ -57,4 +57,9 @@ class Myuser extends Model
     {
         return $this->belongsTo('App\City');
     }
+
+    public function point()
+    {
+        return $this->hasMany('App\Point', 'user_id', 'id');
+    }
 }
