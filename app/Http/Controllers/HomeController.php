@@ -18,16 +18,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $totalUser = Myuser::count();
-        $totalApp = Application::count();
         $totalCommunity = Community::count();
         $totalPoint = Point::select('user_id')
             ->groupBy('user_id')
             ->get()
             ->count();
-        $totalQrCode = QRCode::count();
-        $totalQrCodeUsage = QRCodeUserRelation::count();
-
         return view('home.empty', compact('totalCommunity', 'totalPoint'));
     }
 
