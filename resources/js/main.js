@@ -277,6 +277,13 @@ $(document).ready(function() {
             },
             columns: [{
                     data: 'user_id',
+                    render: function(data, type, row) {
+                        if (_.isNull(data)) {
+                            return "-";
+                        } else {
+                            return data;
+                        }
+                    },
                     searchable: false
                 },
                 {
@@ -315,7 +322,11 @@ $(document).ready(function() {
                 {
                     data: 'user_id',
                     render: function(data, type, row) {
-                        return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/' + slugify(row.name, { lower: true, }) + '/history">View</a>'
+                        if (_.isNull(data)) {
+                            return "";
+                        } else {
+                            return '<a class="btn btn-sm btn-success" href="' + baseURL + '/point/' + data + '/' + slugify(row.name, { lower: true, }) + '/history">View</a>'
+                        }
                     }
                 }
             ],
