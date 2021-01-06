@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-xl-12 mt-12">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>

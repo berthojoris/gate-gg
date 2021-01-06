@@ -18,6 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .content-page .content {
+            padding: 25px 15px 10px 15px;
+            margin-top: 70px;
+            margin-bottom: 60px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
