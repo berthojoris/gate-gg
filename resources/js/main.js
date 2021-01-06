@@ -282,7 +282,11 @@ $(document).ready(function() {
                 {
                     data: 'total_point',
                     render: function(data, type, row) {
-                        return numeral(data).format('0,0');
+                        if (_.isNull(data)) {
+                            return "0";
+                        } else {
+                            return numeral(data).format('0,0');
+                        }
                     },
                     searchable: false
                 },
@@ -299,7 +303,14 @@ $(document).ready(function() {
                 },
                 {
                     data: 'email',
-                    name: 'ggid_myuser.email'
+                    name: 'ggid_myuser.email',
+                    render: function(data, type, row) {
+                        if (_.isNull(data)) {
+                            return "-";
+                        } else {
+                            return data;
+                        }
+                    }
                 },
                 {
                     data: 'user_id',
