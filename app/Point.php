@@ -25,7 +25,7 @@ class Point extends Model
     {
         $model = DB::connection('online_gate')->table('ggid_point')
             ->select(DB::raw('user_id, SUM(IFNULL(amount,0)) as total_point, ggid_myuser.name, ggid_myuser.email'))
-            ->leftJoin('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_point.user_id')
+            ->rightJoin('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_point.user_id')
             ->groupBy('user_id');
         return DataTables::of($model)->toJson();
     }
