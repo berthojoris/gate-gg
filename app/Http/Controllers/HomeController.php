@@ -11,6 +11,7 @@ use App\Application;
 use App\Mail\EmailNotif;
 use App\QRCodeUserRelation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -19,7 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $totalCommunity = Community::count();
-        $totalPoint = Point::groupBy('user_id')->get()->count();
+        // $totalPoint = Point::groupBy('user_id')->get()->count();
+        $totalPoint = DB::table('ggid_point')->count();
         return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
