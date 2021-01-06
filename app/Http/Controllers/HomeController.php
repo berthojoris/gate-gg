@@ -23,7 +23,7 @@ class HomeController extends Controller
             ->groupBy('user_id')
             ->get()
             ->count();
-        return view('home.empty', compact('totalCommunity', 'totalPoint'));
+        return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
 
     public function mail()
