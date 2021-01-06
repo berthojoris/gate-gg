@@ -23,7 +23,7 @@ class Point extends Model
 
     public static function data()
     {
-        $model = DB::connection('local_gate')->table('ggid_point')
+        $model = DB::connection('online_gate')->table('ggid_point')
             ->select(DB::raw('user_id, SUM(amount) as total_point, ggid_myuser.name, ggid_myuser.email'))
             ->join('ggid_myuser', 'ggid_myuser.id', '=', 'ggid_point.user_id')
             ->groupBy('user_id');
