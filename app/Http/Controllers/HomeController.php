@@ -23,6 +23,7 @@ class HomeController extends Controller
         $totalPoint = DB::connection('online_gate')
             ->table('ggid_point')
             ->groupBy('user_id')
+            ->get()
             ->count();
         return view('home.index', compact('totalCommunity', 'totalPoint'));
     }
