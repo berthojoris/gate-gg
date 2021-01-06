@@ -2,31 +2,9 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xl-12 mt-3">
+    <div class="col-xl-12 mt-6">
         <div class="row">
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-                            <h1 class="text-primary mt-2">{{ number_format($totalUser) }}</h1>
-                            <p class="text-muted">Total registered users</p>
-                            <div class="mt-4"><a href="{{ route('user') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-                            <h1 class="text-primary mt-2">{{ $totalApp }}</h1>
-                            <p class="text-muted">Total registered app</p>
-                            <div class="mt-4"><a href="{{ route('application') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
@@ -37,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
@@ -48,54 +26,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-                            <h1 class="text-primary mt-2">{{ number_format($totalQrCode) }}</h1>
-                            <p class="text-muted">Total Master QRCode</p>
-                            <div class="mt-4"><a href="{{ route('qrcode') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <div class="py-4"><i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-                            <h1 class="text-primary mt-2">{{ number_format($totalQrCodeUsage) }}</h1>
-                            <p class="text-muted">Total QRCode Usage</p>
-                            <div class="mt-4"><a href="{{ route('qrcode_usage') }}" class="btn btn-primary btn-sm">Open Detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="mt-0 header-title mb-5">Total user registration in the last 10 months</h4>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div>
-                            <div id="chart-with-area" class="ct-chart earning ct-golden-section"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 @endsection
-
-@push('page_js')
-    <script src="{{ asset('template/plugins/chartist/js/chartist.min.js') }}"></script>
-    <script src="{{ asset('template/plugins/chartist/js/chartist-plugin-tooltip.min.js') }}"></script>
-@endpush
 
 @push('page_js')
     <script src="{{ asset('js/main.js') }}"></script>
