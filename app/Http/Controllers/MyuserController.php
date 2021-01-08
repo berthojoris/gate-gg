@@ -30,10 +30,21 @@ class MyuserController extends Controller
     public function updateProfile()
     {
         $user = auth()->user();
-        // Save user data
-        // Check if upload image save to disk
-        // Redirect with flash message
-        flash('Data has been updated!')->success();
+
+        $valid = Validator::make(request()->all(), [
+            'password_confirmation' => 'required_with:password',
+            'password' => 'confirmed',
+        ]);
+
+        if ($valid->fails()) {
+            return redirect()->back()->withErrors($valid)->withInput();
+        }
+
+        User::find($user->id)->update([
+            'password' => bcrypt(request('password'))
+        ]);
+
+        flash('Password has been updated!')->success();
         return redirect()->back();
     }
 
