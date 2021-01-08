@@ -22,23 +22,27 @@ class PointByIdExport implements FromCollection, WithMapping, WithHeadings
 
     public function collection()
     {
-        $query = Point::whereUserId($this->idData)->get();
+        $query = Point::with('awarded')->whereUserId($this->idData)->get();
         return $query;
     }
 
     public function map($point) : array
     {
         return [
-            Carbon::createFromTimeStamp(strtotime($point->datetime_added))->diffForHumans(),
+            $point->datetime_added,
             number_format($point->amount),
-        ] ;
+            ($point->reason == null) ? '-' : $point->reason,
+            ($point->awarded == null) ? '-' : $point->awarded->name,
+        ];
     }
 
     public function headings() : array
     {
         return [
-           'Point Didapatkan',
+           'Point Didapatkan Tanggal',
            'Jumlah Point',
+           'Alasan Diberikan',
+           'Point Diberikan Oleh',
         ];
     }
 }

@@ -21,6 +21,11 @@ class Point extends Model
         return $this->belongsTo('App\Myuser', 'user_id', 'id');
     }
 
+    public function awarded()
+    {
+        return $this->belongsTo('App\Myuser', 'awarded_by_id', 'id');
+    }
+
     public static function data()
     {
         $model = DB::connection('online_gate')->table('ggid_point')
