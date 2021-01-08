@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-sm-6">
@@ -17,10 +17,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 mt-3">
         @include('flash::message')
         <div class="card">
             <div class="card-body">
