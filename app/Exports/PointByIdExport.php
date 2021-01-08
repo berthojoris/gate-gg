@@ -22,7 +22,7 @@ class PointByIdExport implements FromCollection, WithMapping, WithHeadings
 
     public function collection()
     {
-        $query = Point::with('awarded', 'user')->whereUserId($this->idData)->get();
+        $query = Point::with('awarded', 'user', 'application')->whereUserId($this->idData)->get();
         return $query;
     }
 
@@ -34,6 +34,7 @@ class PointByIdExport implements FromCollection, WithMapping, WithHeadings
             ($point->reason == null) ? '-' : $point->reason,
             ($point->awarded == null) ? '-' : $point->awarded->name,
             ($point->user == null) ? '-' : $point->user->name,
+            ($point->application == null) ? '-' : $point->application->name,
         ];
     }
 
@@ -45,6 +46,7 @@ class PointByIdExport implements FromCollection, WithMapping, WithHeadings
            'Alasan Diberikan',
            'Point Diberikan Oleh',
            'User',
+           'Nama Aplikasi',
         ];
     }
 }
