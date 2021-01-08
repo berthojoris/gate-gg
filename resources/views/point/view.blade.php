@@ -3,7 +3,20 @@
 @section('content')
 
 <div class="row">
-    <div class="col-xl-4 mt-3">
+    <div class="col-lg-12 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title">Generate To Excel</h4>
+                <div class="btn-group m-b-10">
+                    <a href="{{ route('download_point_by_id', $id) }}" class="btn btn-success">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-6">
         <div class="card">
             <div class="card-body">
                 <h4 class="mt-2 header-title mb-4">Point History</h4>
