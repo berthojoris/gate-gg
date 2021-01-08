@@ -45,9 +45,9 @@ class PointController extends Controller
         return (new PointCategoryExport)->download('point_category.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
 
-    public function downloadExcelById($id)
+    public function downloadExcelById($id, $name)
     {
-        return (new PointByIdExport($id))->download('point_by_id.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
+        return (new PointByIdExport($id))->download("point-".$name.'.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
     }
 
     public function openModalHistory($id)

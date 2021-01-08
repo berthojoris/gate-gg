@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="mt-0 header-title">Generate To CSV</h4>
                 <div class="btn-group m-b-10">
-                    <a href="{{ route('download_point_by_id', $id) }}" class="btn btn-success">Download</a>
+                    <a href="{{ route('download_point_by_id', [$id, request()->segment(3)]) }}" class="btn btn-success">Download</a>
                 </div>
             </div>
         </div>
