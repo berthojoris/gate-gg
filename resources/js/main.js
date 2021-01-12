@@ -70,7 +70,7 @@ $(document).ready(function() {
                         if (data == '') {
                             return "-"
                         }
-                        return _.truncate(data, { 'length': 15 })
+                        return _.truncate(data, { 'length': 24 })
                     }
                 },
                 {
