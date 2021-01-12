@@ -13,7 +13,7 @@
                                 <p class="text-muted">For user with ID {{ $id }}</p>
                             </div>
                         </div>
-                        @if (empty($comm))
+                        @if (count($comm) < 1)
                             <div class="alert alert-info" role="alert">
                                 <strong>Heads up!</strong> This user has no community.
                             </div>
