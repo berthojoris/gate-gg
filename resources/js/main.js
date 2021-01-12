@@ -153,7 +153,7 @@ $(document).ready(function() {
                     } else {
                         $("#gender").val("F");
                     }
-                    $("input[name='address']").val(response.address);
+                    $("textarea[name='address']").val(response.address);
                     $("input[name='website']").val(response.website);
                     $("input[name='phone']").val(response.phone);
                     $("input[name='date_joined']").val(moment(response.date_joined, "YYYYMMDD").fromNow());
