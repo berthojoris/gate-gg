@@ -62,4 +62,9 @@ class Myuser extends Model
     {
         return $this->hasMany('App\Point', 'user_id', 'id');
     }
+
+    public function community()
+    {
+        return $this->hasMany('App\Community', 'user_id', 'id');
+    }
 }

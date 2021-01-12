@@ -143,6 +143,13 @@ class MyuserController extends Controller
         return view('user.index');
     }
 
+    public function hasCommunity($id)
+    {
+        $userCommunity = Myuser::with('community.application')->where('id', $id)->first();
+        $comm = $userCommunity->community;
+        return view('user.user_community', compact('comm', 'id'));
+    }
+
     public function getUserDashboard()
     {
         $users = User::with('userprivilege')->select('users.*');

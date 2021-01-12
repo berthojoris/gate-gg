@@ -97,7 +97,7 @@ $(document).ready(function() {
                 {
                     data: 'id',
                     render: function(data, type, row) {
-                        return '<button type="button" class="btn btn-info " id="' + data + '">Edit</button>';
+                        return '<a href="" class="editForm" id="' + data + '"><i class="fas fa-edit"></i></a><span class="ml-2"></span><a href="' + route('hasCommunity', data) + '" class="userCommunity" id="' + data + '"><i class="fas fa-boxes"></i></a>';
                     },
                     searchable: false
                 }
@@ -126,7 +126,7 @@ $(document).ready(function() {
             });
         });
 
-        $('.dataTable').on('click', '.btn-info', function(e) {
+        $('.dataTable').on('click', '.editForm', function(e) {
             e.preventDefault();
             var id = $(this).attr('id');
             var data = table.row($(this).parents('tr')).data();

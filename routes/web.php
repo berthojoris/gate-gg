@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth']], function () {
         // ================================== Main Pages ==================================
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/user', 'MyuserController@index')->name('user');
+        Route::get('/user/{id}/community', 'MyuserController@hasCommunity')->name('hasCommunity');
         Route::get('/application', 'ApplicationController@index')->name('application');
         Route::get('/application/{id}/{any}', 'ApplicationController@viewApplicationDetail')->name('application_detail');
 
