@@ -9,7 +9,11 @@
                     <div class="card-body">
                         <div class="mb-2 pt-3 pb-1">
                             <div class="text-left">
-                                <h5 class="mt-0">User Has Community</h5>
+                                @if (count($comm) < 1)
+                                    <h5 class="mt-0">User Has No Community</h5>
+                                @else
+                                    <h5 class="mt-0">User Has Community</h5>
+                                @endif
                                 <p class="text-muted">For user with ID {{ $id }}</p>
                             </div>
                         </div>
