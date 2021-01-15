@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "acorn": "7.1.1",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "bootstrap": "^4.4.1",
         "install": "^0.13.0",
         "jquery": "^3.4.1",
