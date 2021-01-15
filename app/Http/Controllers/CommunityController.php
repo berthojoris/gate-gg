@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Myuser;
 use App\Community;
+use App\Relationship;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Excel;
 use App\Exports\CommunityExport;
+use Illuminate\Support\Facades\DB;
 
 class CommunityController extends Controller
 {
     public function data()
     {
-        $model = Community::with('application', 'user');
+        $model = Community::with(['application' => function($query) {
+            $query->select('id', 'name');
+        }, 'user' => function($query) {
+            $query->select('id', 'email', 'name');
+        }]);
         return datatables()->eloquent($model)->toJson();
     }
 
@@ -28,21 +34,24 @@ class CommunityController extends Controller
 
     public function viewCommunityDetail($id)
     {
-        $data = Community::with([
-            'user' => function($qUser) {
-            $qUser->select('id', 'name as community_name');
-        }, 'communitylist.user' => function($query) {
-            $query->select('id', 'email', 'name', 'last_login');
-        }, 'communitylist.addedby' => function($q) {
-            $q->select('id', 'name as addedby');
-        }])->whereId($id)->first();
+        session()->forget('currentUrl');
+        session(['currentUrl' => request()->fullUrl()]);
 
-        return view('community.view', compact('data'));
+        $data = Relationship::with(['communityMember' => function($query) {
+            $query->select('id', 'email', 'name', 'last_login');
+        }, 'addedBy' => function($query) {
+            $query->select('id', 'email', 'name');
+        }, 'communityName' => function($query) {
+            $query->select('id', 'name');
+        }])->where('to_user_id', $id)->get();
+
+        return view('community.view', compact('data', 'id'));
     }
 
-    public function viewUserViaCommunity($id, $iduser)
+    public function viewUserViaCommunity($iduser)
     {
+        $backLink = session()->get('currentUrl');
         $data = Myuser::with('city')->where('id', $iduser)->first();
-        return view('community.view_user', compact('data'));
+        return view('community.view_user', compact('data', 'backLink'));
     }
 }

@@ -7,7 +7,9 @@
             <div class="card-body">
                 <h4 class="mt-0 header-title">User Detail</h4>
                 <p class="text-muted m-b-20">You can see all user registred <a href="{{ route('user') }}" class="btn btn-outline-primary waves-effect waves-light">Here</a>
-                @if (!empty(url()->previous()))
+                @if (!empty($backLink))
+                Or <a class="btn btn-outline-primary waves-effect waves-light" href="{{ $backLink }}">Back</a></p>
+                @else
                 Or <a class="btn btn-outline-primary waves-effect waves-light" href="{{ route('community') }}">Back To Community List</a></p>
                 @endif
             </div>
@@ -56,7 +58,7 @@
                 <div class="form-group row">
                     <label for="example-text-input" class="col-sm-4 col-form-label">City</label>
                     <div class="col-sm-8">
-                        <input class="form-control" readonly type="text" value="{{ $data->city->name }}" id="city" name="city">
+                        <input class="form-control" readonly type="text" value="{{ optional($data->city)->name }}" id="city" name="city">
                     </div>
                 </div>
                 <div class="form-group row">

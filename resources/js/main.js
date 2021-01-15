@@ -255,7 +255,7 @@ $(document).ready(function() {
                     }
                 },
                 {
-                    data: 'id',
+                    data: 'user.id',
                     render: function(data, type, row) {
                         return '<a class="btn btn-sm btn-success" href="' + baseURL + '/community/' + data + '/' + slugify(row.user.name, { lower: true, }) + '">View</a>'
                     }

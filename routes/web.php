@@ -74,4 +74,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/point/modal/{id}', 'PointController@openModalHistory')->name('open_modal');
     Route::get('/data/city', 'MyuserController@getCity')->name('get_city');
     Route::get('/data/user/dashboard', 'MyuserController@getUserDashboard')->name('get_user_dashboard');
+    Route::get('/data/community/member/{id}', 'CommunityController@viewMember')->name('viewMember');
 });
