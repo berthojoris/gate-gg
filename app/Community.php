@@ -23,4 +23,9 @@ class Community extends Model
     {
         return $this->hasMany('App\CommunityAdmin');
     }
+
+    public function relationship()
+    {
+        return $this->hasMany('App\Relationship', 'to_user_id', 'user_id');
+    }
 }

@@ -54,4 +54,15 @@ class CommunityController extends Controller
         $data = Myuser::with('city')->where('id', $iduser)->first();
         return view('community.view_user', compact('data', 'backLink'));
     }
+
+    public function findByEmail()
+    {
+        $email = request('email');
+
+        $data = Community::whereHas('relationship.communityMember', function($q) use ($email) {
+            $q->where('email', $email);
+        })->get();
+
+        return $data;
+    }
 }

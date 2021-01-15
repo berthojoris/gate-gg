@@ -6,6 +6,7 @@ use App\City;
 use App\User;
 use App\Myuser;
 use App\Region;
+use App\Community;
 use Carbon\Carbon;
 use App\Application;
 use App\UserPrivilege;
@@ -145,9 +146,22 @@ class MyuserController extends Controller
 
     public function hasCommunity($id)
     {
-        $userCommunity = Myuser::with('community.application')->where('id', $id)->first();
-        $comm = $userCommunity->community;
-        return view('user.user_community', compact('comm', 'id'));
+        $userCommunity = Myuser::findOrFail($id);
+        $email = $userCommunity->email;
+
+        $data = Community::whereHas('relationship.communityMember', function($q) use ($email) {
+            $q->where('email', $email);
+        })->get();
+
+        if(!empty($data)) {
+            $communityID = [];
+            foreach($data as $d) {
+                array_push($communityID, $d->user_id);
+            }
+            $communityName = Myuser::whereIn('id', $communityID)->select('id', 'name', 'email')->get();
+        }
+
+        return view('user.user_community', compact('communityName'));
     }
 
     public function getUserDashboard()
