@@ -208,7 +208,7 @@ class MyuserController extends Controller
 
     public function downloadExcel()
     {
-        (new MyusersExport)->queue('users.xlsx');
+        (new MyusersExport)->store(public_path()."/export/users.xlsx");
 
         flash('The file will be processed in the background')->success();
         return back();
