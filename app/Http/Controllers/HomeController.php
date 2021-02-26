@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use App\Point;
 use App\Myuser;
 use App\QRCode;
 use App\Article;
 use App\Community;
+use App\FailedJob;
 use App\Application;
 use App\Mail\EmailNotif;
 use App\QRCodeUserRelation;
@@ -35,5 +37,21 @@ class HomeController extends Controller
     {
         $data = Article::cursor()->take(10);
         return view('home.test', compact('data'));
+    }
+
+    public function job()
+    {
+        $data = Job::where("attempts", 1)->first();
+
+        if(!empty($data)) {
+            return "Masih Ada Running Job";
+        } else {
+            return "Tidak Ada Running Job";
+        }
+    }
+
+    public function failed()
+    {
+        $data =  FailedJob::orderBy("id", "desc")->get();
     }
 }

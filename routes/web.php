@@ -75,4 +75,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/city', 'MyuserController@getCity')->name('get_city');
     Route::get('/data/user/dashboard', 'MyuserController@getUserDashboard')->name('get_user_dashboard');
     Route::get('/data/community/member/{id}', 'CommunityController@viewMember')->name('viewMember');
+    Route::get('/data/job', 'HomeController@job')->name('job');
+    Route::get('/data/job/failed', 'HomeController@failed')->name('failed');
 });
