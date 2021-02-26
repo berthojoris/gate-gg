@@ -14,6 +14,7 @@ use App\Jobs\SendEmail;
 use App\Exports\AppExport;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Exports\MyusersExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
@@ -207,8 +208,10 @@ class MyuserController extends Controller
 
     public function downloadExcel()
     {
-        $query = Myuser::alluser()->get();
-        return fastexcel($query)->download('users_all.csv');
+        (new MyusersExport)->queue('users.xlsx');
+
+        flash('The file will be processed in the background')->success();
+        return back();
     }
 
     public function downloadExcelMan()
